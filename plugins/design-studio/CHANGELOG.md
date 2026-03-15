@@ -1,6 +1,42 @@
 # Changelog
 
-All notable changes to Design Studio are documented here.
+All notable changes to naksha are documented here.
+
+## [3.3.0] — 2026-03-14
+
+Rebrand — design-studio becomes naksha.
+
+### Changed
+
+- Plugin renamed from `design-studio` to `naksha`
+- Visual identity updated to Naksha brand (`#E8633A`, `#1A1A2E`, Inter, 3×3 circle mark)
+- README header rewritten with Naksha logo mark, wordmark, and tagline
+- `assets/social-preview.svg` regenerated with Naksha dark/orange identity
+- `assets/social-preview.html` source updated with Naksha identity
+- `assets/demo.svg` updated with naksha name and v3.3.0 label
+- `skills/design/SKILL.md` prose reference updated
+- `CONTRIBUTING.md` install path updated
+- `.github/workflows/design-check.yml` PR comment URL updated
+- GitHub repository renamed: `design-studio` → `naksha-studio`
+
+No functional changes — all 27 commands, 13 roles, agents, hooks, and evals are unchanged.
+
+---
+
+## [3.2.0] — 2026-03-14
+
+Role Depth Expansion — 10 role reference files upgraded with expert-level patterns and full domain coverage.
+
+### Changed
+
+- **10 role files expanded**: `ui-designer`, `ux-designer`, `product-designer`, `content-designer`, `data-viz-designer`, `ux-researcher`, `figma-workflow`, `deployment`, `email-copywriter`, `social-media-designer` — each gains `## Advanced Patterns` and `## Full Coverage` sections
+- **Expert-level patterns added per role**: dark mode token strategy, component state taxonomy, JTBD framework, error message formula, chart type decision tree, qual vs. quant decision guide, auto-layout edge cases, Core Web Vitals optimisation per metric, subject line formula library, platform-specific safe zone guide
+- **Full Coverage added per role**: complete form state matrix, navigation pattern decision guide, edge case mapping methodology, discovery phase checklist, chart type reference, research ops checklist, component audit methodology, performance budget framework, email type reference, platform format reference
+- **Knowledge base**: ~6,000 lines → ~9,500 lines (+58%)
+- **10 new eval cases** (ids 32–41) — one per role, testing decision-making depth
+- plugin.json version bumped to 3.2.0
+
+---
 
 ## [3.1.0] — 2026-03-13
 
