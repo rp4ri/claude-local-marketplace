@@ -1,0 +1,485 @@
+{
+  "skill_name": "design",
+  "evals": [
+    {
+      "id": 0,
+      "name": "onboarding-redesign",
+      "prompt": "Redesign an onboarding flow for a project management app — 4 steps: welcome, create first project, invite team, set up first task. Build it as a working HTML page with animations.",
+      "expected_output": "A polished, multi-step onboarding flow with clear progress indicator, smooth transitions between steps, helpful microcopy, and responsive design",
+      "files": [],
+      "assertions": [
+        {"name": "has-4-steps", "description": "All 4 onboarding steps are present"},
+        {"name": "has-progress-indicator", "description": "Visual progress bar or step indicator"},
+        {"name": "has-step-transitions", "description": "Animated transitions between steps"},
+        {"name": "responsive-layout", "description": "Uses responsive CSS"},
+        {"name": "has-microcopy", "description": "Helpful labels, descriptions, and CTAs"},
+        {"name": "accessible-markup", "description": "Uses semantic HTML elements"}
+      ]
+    },
+    {
+      "id": 1,
+      "name": "pricing-table",
+      "prompt": "Build a clean, responsive pricing table with 3 tiers (Free, Pro, Enterprise) and a toggle between monthly/annual billing. Make it production-ready HTML.",
+      "expected_output": "A responsive pricing component with three tier cards, a billing toggle with smooth animation, clear feature comparison, and prominent CTAs",
+      "files": [],
+      "assertions": [
+        {"name": "has-3-tiers", "description": "Three pricing tiers present"},
+        {"name": "has-billing-toggle", "description": "Monthly/annual toggle exists"},
+        {"name": "toggle-animates", "description": "Toggle has CSS transition"},
+        {"name": "responsive-layout", "description": "Works on mobile"},
+        {"name": "has-feature-list", "description": "Each tier lists features"},
+        {"name": "has-cta-buttons", "description": "Each tier has a CTA button"}
+      ]
+    },
+    {
+      "id": 2,
+      "name": "checkout-fix",
+      "prompt": "The checkout flow has a 40% drop-off rate. Redesign the checkout page with better UX, clearer error handling, and trust signals. Build it as a working HTML page.",
+      "expected_output": "A streamlined checkout page with inline validation, clear error messages, trust signals, order summary, and mobile-optimized layout",
+      "files": [],
+      "assertions": [
+        {"name": "has-inline-validation", "description": "Form fields show validation states"},
+        {"name": "has-error-messages", "description": "Specific, helpful error messages"},
+        {"name": "has-trust-signals", "description": "Security badges or trust elements"},
+        {"name": "has-order-summary", "description": "Visible order summary"},
+        {"name": "responsive-layout", "description": "Mobile-responsive layout"},
+        {"name": "has-progress-indicator", "description": "Checkout step indicator"}
+      ]
+    },
+    {
+      "id": 3,
+      "name": "design-system-tokens",
+      "prompt": "/design-system Generate a complete token system from brand color #2563eb with dark mode support",
+      "expected_output": "CSS custom properties with full color palette (10 shades), semantic colors, typography scale, spacing scale, and dark mode overrides",
+      "files": [],
+      "assertions": [
+        {"name": "has-color-shades", "description": "Primary color expanded to 10+ shades (50-950)"},
+        {"name": "has-semantic-colors", "description": "Success, warning, error, info colors defined"},
+        {"name": "has-dark-mode", "description": "Dark mode overrides present ([data-theme=dark] or @media prefers-color-scheme)"},
+        {"name": "has-typography-scale", "description": "Font sizes from xs to 5xl defined"},
+        {"name": "has-spacing-scale", "description": "Spacing values on a consistent grid"},
+        {"name": "uses-css-variables", "description": "Output uses CSS custom properties"}
+      ]
+    },
+    {
+      "id": 4,
+      "name": "design-review-audit",
+      "prompt": "/design-review ./evals/fixtures/test-page.html — audit this landing page for accessibility, usability, visual consistency, content quality, and motion design",
+      "expected_output": "Structured 5-point audit report with specific issues, severity levels, and actionable fix recommendations",
+      "files": [],
+      "assertions": [
+        {"name": "checks-accessibility", "description": "WCAG AA contrast and keyboard nav checked"},
+        {"name": "checks-usability", "description": "Nielsen's heuristics referenced"},
+        {"name": "checks-visual-consistency", "description": "Spacing, color, and typography consistency evaluated"},
+        {"name": "has-severity-levels", "description": "Issues categorized by severity (critical, major, minor)"},
+        {"name": "has-fix-suggestions", "description": "Each issue includes a specific remediation"},
+        {"name": "has-summary-score", "description": "Overall quality score or assessment"}
+      ]
+    },
+    {
+      "id": 5,
+      "name": "brand-kit-generation",
+      "prompt": "/brand-kit #6366f1 TechFlow professional",
+      "expected_output": "Complete brand kit with color palette, typography, spacing, and component tokens in CSS and Tailwind formats",
+      "files": [],
+      "assertions": [
+        {"name": "has-primary-palette", "description": "Primary color expanded to full shade scale"},
+        {"name": "has-secondary-color", "description": "Derived secondary/accent color present"},
+        {"name": "has-neutrals", "description": "Neutral gray palette with brand tint"},
+        {"name": "has-typography", "description": "Font pairing and type scale defined"},
+        {"name": "has-css-output", "description": "CSS custom properties generated"},
+        {"name": "has-tailwind-output", "description": "Tailwind config extension generated"}
+      ]
+    },
+    {
+      "id": 6,
+      "name": "responsive-dashboard",
+      "prompt": "/design Build a real-time analytics dashboard with sidebar navigation, KPI cards, line chart, and data table. Must be responsive.",
+      "expected_output": "Full dashboard page with sidebar, KPI summary cards, chart area, data table, responsive breakpoints, and professional styling",
+      "files": [],
+      "assertions": [
+        {"name": "has-sidebar-nav", "description": "Sidebar navigation with menu items"},
+        {"name": "has-kpi-cards", "description": "Summary stat cards with metrics"},
+        {"name": "has-chart-area", "description": "Chart or data visualization area"},
+        {"name": "has-data-table", "description": "Tabular data display"},
+        {"name": "responsive-breakpoints", "description": "Layout adapts at mobile/tablet/desktop"},
+        {"name": "professional-styling", "description": "Uses design tokens and consistent spacing"}
+      ]
+    },
+    {
+      "id": 7,
+      "name": "figma-create-wireframe",
+      "prompt": "/figma-create Build a 3-screen wireframe for a task management app: task list, task detail, and create task modal",
+      "expected_output": "Three Figma frames at standard sizes with auto-layout, placeholder content, and wireframe-appropriate styling",
+      "files": [],
+      "assertions": [
+        {"name": "creates-3-frames", "description": "Three distinct frames created in Figma"},
+        {"name": "uses-auto-layout", "description": "Frames use auto-layout for structure"},
+        {"name": "wireframe-fidelity", "description": "Gray mid-fi aesthetic, not hi-fi"},
+        {"name": "has-placeholder-content", "description": "Realistic placeholder text and elements"},
+        {"name": "proper-naming", "description": "Frames named descriptively"},
+        {"name": "validated-with-screenshot", "description": "Screenshots taken to verify output"}
+      ]
+    },
+    {
+      "id": 8,
+      "name": "ux-audit-compliance",
+      "prompt": "/ux-audit Check the design file for: 4 required pages, frame sizes at 1440×900, at least 10 paint styles, and component sets with proper variants",
+      "expected_output": "Compliance audit report with pass/fail for each requirement and specific findings",
+      "files": [],
+      "assertions": [
+        {"name": "checks-page-structure", "description": "Verifies page count and names"},
+        {"name": "checks-frame-sizes", "description": "Validates frame dimensions"},
+        {"name": "checks-paint-styles", "description": "Counts and lists paint styles"},
+        {"name": "checks-components", "description": "Verifies component sets and variants"},
+        {"name": "has-pass-fail", "description": "Each requirement has clear pass/fail status"},
+        {"name": "has-remediation", "description": "Failed items include fix instructions"}
+      ]
+    },
+    {
+      "id": 9,
+      "name": "design-sprint-facilitation",
+      "prompt": "/design-sprint Users are abandoning the signup flow — 60% drop-off between email entry and account creation",
+      "expected_output": "Structured design sprint with problem mapping, 8 solution ideas, decision matrix, prototype specification, and testing plan",
+      "files": [],
+      "assertions": [
+        {"name": "has-problem-statement", "description": "Clear problem statement with who/what/why"},
+        {"name": "has-user-journey", "description": "Current user journey mapped"},
+        {"name": "has-8-solutions", "description": "At least 8 distinct solution ideas generated"},
+        {"name": "has-decision-matrix", "description": "Scored matrix comparing solutions"},
+        {"name": "has-prototype-spec", "description": "Prototype scope and screens defined"},
+        {"name": "has-test-plan", "description": "Usability test script with tasks and metrics"}
+      ]
+    },
+    {
+      "id": 10,
+      "name": "design-handoff-docs",
+      "prompt": "/design-handoff Generate a developer handoff document from the current Figma file with CSS variables and Tailwind config",
+      "expected_output": "Comprehensive handoff doc with token maps, component specs, spacing reference, and code outputs in multiple formats",
+      "files": [],
+      "assertions": [
+        {"name": "has-color-tokens", "description": "Color tokens extracted with hex values"},
+        {"name": "has-typography-specs", "description": "Typography styles with font/size/weight"},
+        {"name": "has-component-specs", "description": "Component properties and variants documented"},
+        {"name": "has-css-variables", "description": "CSS custom properties output"},
+        {"name": "has-tailwind-config", "description": "Tailwind theme extension output"},
+        {"name": "has-spacing-reference", "description": "Spacing scale documented"}
+      ]
+    },
+    {
+      "id": 11,
+      "name": "design-presentation",
+      "prompt": "/design-present Create a walkthrough presentation of the design with annotations for a stakeholder review",
+      "expected_output": "Self-contained HTML presentation with slides, keyboard navigation, annotations, and speaker notes",
+      "files": [],
+      "assertions": [
+        {"name": "is-single-html", "description": "Output is a single HTML file"},
+        {"name": "has-keyboard-nav", "description": "Arrow keys navigate between slides"},
+        {"name": "has-progress-bar", "description": "Visual progress indicator"},
+        {"name": "has-annotations", "description": "Design decision annotations on screen slides"},
+        {"name": "has-slide-structure", "description": "Title slide, screen slides, summary slide"},
+        {"name": "has-speaker-notes", "description": "Speaker notes or presenter view included"}
+      ]
+    },
+    {
+      "id": 12,
+      "name": "figma-responsive-variants",
+      "prompt": "/figma-responsive Generate mobile (375×812) and tablet (768×1024) variants from the desktop hero frame",
+      "expected_output": "Two new Figma frames cloned and adapted from the desktop source with layout reflowed for smaller breakpoints",
+      "files": [],
+      "assertions": [
+        {"name": "creates-mobile-frame", "description": "Mobile frame created at 375×812"},
+        {"name": "creates-tablet-frame", "description": "Tablet frame created at 768×1024"},
+        {"name": "preserves-source", "description": "Original desktop frame is unchanged"},
+        {"name": "adapts-layout", "description": "Multi-column grids reflowed for smaller widths"},
+        {"name": "proper-naming", "description": "Frames named with / Mobile and / Tablet suffixes"},
+        {"name": "validated-with-screenshot", "description": "Screenshots taken of all breakpoints"}
+      ]
+    },
+    {
+      "id": 13,
+      "name": "figma-sync-check",
+      "prompt": "/figma-sync Compare the current Figma file's tokens against the project's CSS variables and report drift",
+      "expected_output": "Sync report with percentage score, categorized drift (colors, typography, spacing, components), and patch suggestions",
+      "files": [],
+      "assertions": [
+        {"name": "extracts-figma-tokens", "description": "Paint styles and text styles extracted from Figma"},
+        {"name": "extracts-code-tokens", "description": "CSS variables or Tailwind config parsed from code"},
+        {"name": "compares-colors", "description": "Color values compared with match/mismatch/missing status"},
+        {"name": "has-sync-score", "description": "Overall sync percentage calculated"},
+        {"name": "has-patch-suggestions", "description": "Concrete code or Figma patches suggested"},
+        {"name": "identifies-direction", "description": "Asks which is source of truth before patching"}
+      ]
+    },
+    {
+      "id": 14,
+      "name": "figma-prototype-flow",
+      "prompt": "/figma-prototype Auto-connect the screens in the current file into a linear flow with slide transitions",
+      "expected_output": "Prototype connections created between screens with appropriate transitions and a flow starting point set",
+      "files": [],
+      "assertions": [
+        {"name": "scans-screens", "description": "All top-level frames identified as screens"},
+        {"name": "identifies-interactive-elements", "description": "Buttons, links, and CTAs found in each screen"},
+        {"name": "creates-connections", "description": "Prototype reactions added to interactive elements"},
+        {"name": "uses-transitions", "description": "Slide-in transitions applied with appropriate direction"},
+        {"name": "sets-starting-point", "description": "Flow starting point set on first screen"},
+        {"name": "generates-report", "description": "Connection summary table generated"}
+      ]
+    },
+    {
+      "id": 15,
+      "name": "site-to-figma-capture",
+      "prompt": "/site-to-figma https://example.com Capture the above-fold layout and recreate it in Figma with extracted styles",
+      "expected_output": "Figma page created with recreated layout sections, extracted paint/text styles, and reference screenshot",
+      "files": [],
+      "assertions": [
+        {"name": "captures-screenshot", "description": "Website screenshot captured via Playwright"},
+        {"name": "extracts-styles", "description": "Colors and typography extracted from computed styles"},
+        {"name": "creates-figma-page", "description": "New Figma page created for the capture"},
+        {"name": "recreates-sections", "description": "Major layout sections recreated as Figma frames"},
+        {"name": "creates-paint-styles", "description": "Extracted colors saved as Figma paint styles"},
+        {"name": "creates-text-styles", "description": "Extracted typography saved as Figma text styles"}
+      ]
+    },
+    {
+      "id": 16,
+      "name": "component-docs-generation",
+      "prompt": "/component-docs Generate documentation for all component sets in the current Figma file",
+      "expected_output": "Markdown documentation with prop tables, variant grids, specs, usage guidelines, and code examples for each component",
+      "files": [],
+      "assertions": [
+        {"name": "lists-all-components", "description": "All component sets discovered and documented"},
+        {"name": "has-prop-tables", "description": "Property tables with type, default, and options"},
+        {"name": "has-variant-grid", "description": "Visual grid showing variant combinations"},
+        {"name": "has-dimension-specs", "description": "Width, height, padding, and radius documented"},
+        {"name": "has-usage-guidelines", "description": "Do/Don't guidelines included"},
+        {"name": "has-code-examples", "description": "HTML/React code snippets generated"}
+      ]
+    },
+    {
+      "id": 17,
+      "name": "social-content-instagram-carousel",
+      "prompt": "/social-content Instagram carousel product launch 5 slides for a minimalist skincare brand launching a new serum, brand color #2C4A3E",
+      "expected_output": "5-slide Instagram carousel (1080×1080px each) with slide structure plan, visual hierarchy specs, copy for each slide, safe zone guidance, and HTML preview or Figma frame spec",
+      "files": [],
+      "assertions": [
+        {"name": "has-platform-specs", "description": "Correct Instagram dimensions (1080×1080px) and safe zones specified"},
+        {"name": "has-slide-structure", "description": "All 5 slides defined with distinct purpose (hook, story, feature, social proof, CTA)"},
+        {"name": "has-copy-per-slide", "description": "Headline and body copy drafted for each slide"},
+        {"name": "has-visual-direction", "description": "Color, typography, and layout direction consistent with brand color and minimalist aesthetic"},
+        {"name": "has-safe-zone-guidance", "description": "Text and key elements stay within safe zone boundaries"},
+        {"name": "has-cta-slide", "description": "Final slide includes a clear call-to-action"}
+      ]
+    },
+    {
+      "id": 18,
+      "name": "social-campaign-saas-launch",
+      "prompt": "/social-campaign Product launch campaign for a B2B SaaS project management tool targeting startup CTOs, 2-week launch window, Instagram + LinkedIn",
+      "expected_output": "Full campaign plan with positioning strategy, 2-week content calendar, caption drafts for each post, hashtag strategy, and KPI targets with baseline benchmarks",
+      "files": [],
+      "assertions": [
+        {"name": "has-campaign-strategy", "description": "Positioning, key messages, and audience targeting defined"},
+        {"name": "has-content-calendar", "description": "2-week calendar with dates, platforms, content types, and topics"},
+        {"name": "has-caption-drafts", "description": "At least 3 caption drafts written with hooks and CTAs"},
+        {"name": "has-hashtag-strategy", "description": "Hashtag sets provided for LinkedIn and Instagram with mix of broad/niche tags"},
+        {"name": "has-kpi-targets", "description": "Quantified targets for reach, engagement rate, and conversion metrics"},
+        {"name": "has-platform-differentiation", "description": "Distinct content approach for Instagram vs LinkedIn audiences"}
+      ]
+    },
+    {
+      "id": 19,
+      "name": "social-analytics-dashboard",
+      "prompt": "/social-analytics dashboard Instagram + LinkedIn last 30 days for an e-commerce brand",
+      "expected_output": "Interactive HTML analytics dashboard with KPI cards, engagement trend charts, platform comparison, top content table, and actionable recommendations",
+      "files": [],
+      "assertions": [
+        {"name": "has-kpi-cards", "description": "Summary cards for reach, impressions, engagement rate, follower growth"},
+        {"name": "has-trend-charts", "description": "Time-series charts showing performance over the 30-day period"},
+        {"name": "has-platform-comparison", "description": "Side-by-side or tabbed comparison between Instagram and LinkedIn metrics"},
+        {"name": "has-top-content-table", "description": "Table or grid showing best-performing content with key metrics"},
+        {"name": "has-recommendations", "description": "At least 3 actionable insights or optimization recommendations"},
+        {"name": "is-interactive", "description": "Dashboard has functional filters, toggles, or hover states"}
+      ]
+    },
+    {
+      "id": 20,
+      "name": "design-framework-react-tailwind",
+      "prompt": "/design-framework react-tailwind — Convert this landing page HTML to React + Tailwind components: a hero section with headline, subtext, and CTA button, plus a 3-column features grid",
+      "expected_output": "TypeScript React components with Tailwind classes, proper interface types, cn() utility, and component decomposition into Hero and FeatureGrid",
+      "files": [],
+      "assertions": [
+        {"name": "has-typescript-interfaces", "description": "Props typed with TypeScript interface or type definitions"},
+        {"name": "uses-tailwind-classes", "description": "Layout uses Tailwind utility classes, not inline styles or custom CSS"},
+        {"name": "has-component-decomposition", "description": "Split into multiple components (e.g., Hero, FeatureCard, FeatureGrid)"},
+        {"name": "has-cn-utility", "description": "Uses cn() or clsx() for conditional class merging"},
+        {"name": "has-default-exports", "description": "Each component has a proper export"},
+        {"name": "no-inline-styles", "description": "No style={{}} attributes — uses Tailwind classes instead"}
+      ]
+    },
+    {
+      "id": 21,
+      "name": "design-framework-nextjs-app-router",
+      "prompt": "/design-framework nextjs — Convert this dashboard page HTML to Next.js App Router. The page has a static sidebar nav and a data table that fetches from an API endpoint.",
+      "expected_output": "Next.js App Router components with correct Server/Client component split — sidebar as Server Component, data table as Client Component with 'use client'",
+      "files": [],
+      "assertions": [
+        {"name": "has-server-component", "description": "Sidebar or static sections are Server Components (no 'use client')"},
+        {"name": "has-client-directive", "description": "Interactive components have 'use client' directive at top of file"},
+        {"name": "has-async-data-fetch", "description": "Server component uses async/await for data fetching, not useEffect"},
+        {"name": "has-typescript", "description": "Components use TypeScript with proper return type annotations"},
+        {"name": "has-layout-structure", "description": "Uses layout.tsx and page.tsx pattern correctly"},
+        {"name": "has-component-separation", "description": "Server and Client components are in separate files"}
+      ]
+    },
+    {
+      "id": 22,
+      "name": "email-template-welcome",
+      "prompt": "/email-template welcome for Horizon SaaS — new user just signed up, first email with quick win offer",
+      "expected_output": "Production-ready HTML email with inline styles, table layout, VML bulletproof button, preheader, mobile responsive @media rules, and welcome sequence copy",
+      "files": [],
+      "assertions": [
+        {"name": "has-inline-styles", "description": "All rendering-critical styles are inline (not CSS-only)"},
+        {"name": "has-table-layout", "description": "Layout uses table elements (not flexbox or grid)"},
+        {"name": "has-vml-button", "description": "CTA button has VML for Outlook and HTML fallback wrapped in conditional comments"},
+        {"name": "has-preheader", "description": "Hidden preheader div with &zwnj;&nbsp; padding present"},
+        {"name": "has-mobile-media-query", "description": "@media screen and (max-width: 600px) responsive rules in <style>"},
+        {"name": "has-unsubscribe-link", "description": "Unsubscribe link present in footer with template variable"}
+      ]
+    },
+    {
+      "id": 23,
+      "name": "email-campaign-onboarding",
+      "prompt": "/email-campaign onboarding for DesignFlow — 5-email sequence for free trial users, goal is trial-to-paid conversion within 14 days",
+      "expected_output": "Campaign brief with sequence map, copy for all 5 emails (subject, preview, body, CTA), full HTML for each email, ESP automation notes, A/B test plan",
+      "files": [],
+      "assertions": [
+        {"name": "has-5-emails", "description": "Exactly 5 emails in the sequence with distinct purposes"},
+        {"name": "has-subject-lines", "description": "Subject line and preview text written for each email"},
+        {"name": "has-sequence-timing", "description": "Day/delay between each email specified (e.g., Day 0, Day 2, Day 5)"},
+        {"name": "has-single-cta-per-email", "description": "Each email has exactly one primary CTA action"},
+        {"name": "has-esp-automation-notes", "description": "Trigger, entry condition, exit condition, and goal tracking documented"},
+        {"name": "has-ab-test-plan", "description": "A/B test recommendations provided for at least one subject line"}
+      ]
+    },
+    {
+      "id": 24,
+      "name": "design-template-landing-page",
+      "prompt": "/design-template landing-page #6366f1 --style bold for Nexus — a developer productivity SaaS",
+      "expected_output": "Complete responsive landing page HTML with hero, features, testimonials, CTA section, and footer using brand color #6366f1 in bold style",
+      "files": [],
+      "assertions": [
+        {"name": "has-css-variables", "description": "Color system defined as CSS custom properties in :root"},
+        {"name": "has-hero-section", "description": "Hero with H1 headline, subtext, and CTA button(s)"},
+        {"name": "has-features-section", "description": "Feature grid or list with icons, titles, and descriptions"},
+        {"name": "has-responsive-layout", "description": "@media queries for mobile (375px) and tablet (768px) breakpoints"},
+        {"name": "has-dark-mode", "description": "@media prefers-color-scheme: dark overrides present"},
+        {"name": "no-lorem-ipsum", "description": "All copy is realistic product language, no Lorem Ipsum"}
+      ]
+    },
+    {
+      "id": 25,
+      "name": "design-template-dashboard",
+      "prompt": "/design-template dashboard --style dark-tech for Pulse Analytics — a real-time monitoring tool",
+      "expected_output": "Admin dashboard HTML with sidebar navigation, KPI stat cards, chart placeholders, and data table in dark-tech style",
+      "files": [],
+      "assertions": [
+        {"name": "has-sidebar-nav", "description": "Fixed sidebar with navigation items and active state"},
+        {"name": "has-kpi-cards", "description": "Stat cards with metric value, label, and trend indicator"},
+        {"name": "has-chart-area", "description": "Chart placeholder areas with labels"},
+        {"name": "has-data-table", "description": "Table with column headers, sample rows, and action elements"},
+        {"name": "dark-tech-style", "description": "Dark background, vibrant accent color, technical aesthetic"},
+        {"name": "has-mobile-responsive", "description": "Sidebar collapses or hides on mobile, single-column layout"}
+      ]
+    },
+    {
+      "id": 26,
+      "name": "edge-case-dark-mode",
+      "prompt": "Build a notification settings page with full dark mode support — the page should look polished in both light and dark themes without any broken contrast or invisible elements",
+      "expected_output": "Settings page with toggle switches, sections, and descriptions that passes WCAG AA contrast in both light and dark modes, using prefers-color-scheme",
+      "files": [],
+      "assertions": [
+        {"name": "has-prefers-color-scheme", "description": "@media (prefers-color-scheme: dark) is used for dark mode"},
+        {"name": "dark-bg-defined", "description": "Dark mode background color explicitly overrides light mode background"},
+        {"name": "dark-text-defined", "description": "Dark mode text color explicitly defined (not invisible on dark bg)"},
+        {"name": "dark-border-defined", "description": "Border colors adjusted for dark mode (not invisible)"},
+        {"name": "has-toggle-switches", "description": "Toggle/checkbox inputs with CSS-styled visual states"},
+        {"name": "has-interactive-states", "description": ":hover and :focus states work in both light and dark modes"}
+      ]
+    },
+    {
+      "id": 27,
+      "name": "edge-case-rtl-layout",
+      "prompt": "Design a product card component that must work correctly in both LTR (English) and RTL (Arabic/Hebrew) layouts. Use CSS logical properties.",
+      "expected_output": "Product card using CSS logical properties (margin-inline-start, padding-inline-end, etc.) and dir='rtl' support, so text and layout flip correctly",
+      "files": [],
+      "assertions": [
+        {"name": "uses-logical-properties", "description": "CSS uses margin-inline-start/end or padding-inline-start/end instead of left/right"},
+        {"name": "has-dir-rtl-demo", "description": "HTML includes dir='rtl' demo or test showing RTL layout"},
+        {"name": "text-aligns-correctly", "description": "Text alignment uses 'start'/'end' not 'left'/'right'"},
+        {"name": "icons-flip-in-rtl", "description": "Directional icons (arrows) use transform: scaleX(-1) or CSS logical values in RTL"},
+        {"name": "no-absolute-positioning-breaks", "description": "Layout doesn't break with dir='rtl' applied to container"},
+        {"name": "has-rtl-comment", "description": "Code includes comment or note explaining the RTL approach used"}
+      ]
+    },
+    {
+      "id": 28,
+      "name": "edge-case-reduced-motion",
+      "prompt": "Build an animated hero section with entrance animations, a rotating logo, and a typing effect — but ensure all animations respect prefers-reduced-motion.",
+      "expected_output": "Hero with CSS animations that are disabled or reduced when prefers-reduced-motion: reduce is detected, without breaking the layout or removing content",
+      "files": [],
+      "assertions": [
+        {"name": "has-animations", "description": "CSS animations or transitions present on hero elements"},
+        {"name": "has-reduced-motion-query", "description": "@media (prefers-reduced-motion: reduce) media query present"},
+        {"name": "animations-disabled-in-query", "description": "animation: none or transition: none applied inside reduced-motion query"},
+        {"name": "layout-intact-without-animation", "description": "Content is still visible and accessible when animations are disabled"},
+        {"name": "typing-effect-handled", "description": "Typing animation shows final text immediately when reduced-motion is preferred"},
+        {"name": "no-autoplaying-video", "description": "Any motion content (video/gif) has controls or is paused by default"}
+      ]
+    },
+    {
+      "id": 29,
+      "name": "workflow-design-to-framework",
+      "prompt": "First, /design a SaaS pricing page with monthly/annual toggle and 3 tiers. Then convert the output to React + Tailwind components using /design-framework react-tailwind.",
+      "expected_output": "First: complete HTML pricing page. Then: React TypeScript components for PricingPage, PricingCard, and BillingToggle with Tailwind classes and proper prop types",
+      "files": [],
+      "assertions": [
+        {"name": "html-phase-complete", "description": "HTML pricing page is produced first before framework conversion"},
+        {"name": "has-react-components", "description": "Final output includes React component files (.tsx)"},
+        {"name": "has-billing-toggle-component", "description": "BillingToggle or similar component handles monthly/annual state"},
+        {"name": "has-pricing-card-props", "description": "PricingCard accepts plan name, price, features array as typed props"},
+        {"name": "tailwind-for-layout", "description": "Grid and flex layout uses Tailwind classes (grid-cols-3, flex, gap-)"},
+        {"name": "state-management-correct", "description": "Toggle state uses React useState, not a global store or context"}
+      ]
+    },
+    {
+      "id": 30,
+      "name": "workflow-brand-to-component-docs",
+      "prompt": "Start with /brand-kit #f59e0b warm, then use /design to build a button component system based on those brand tokens, then run /design-review to audit the result.",
+      "expected_output": "Brand kit tokens → Button component system → Design review report. Each phase's output feeds the next.",
+      "files": [],
+      "assertions": [
+        {"name": "brand-kit-tokens-present", "description": "CSS custom properties or token definitions derived from #f59e0b"},
+        {"name": "button-uses-brand-tokens", "description": "Button component references the brand token variables, not hardcoded colors"},
+        {"name": "has-button-variants", "description": "At least 3 button variants (primary, ghost, text/link)"},
+        {"name": "review-references-brand", "description": "Design review audit checks token usage and brand consistency"},
+        {"name": "review-checks-accessibility", "description": "Review includes contrast ratio check for button text on brand background"},
+        {"name": "workflow-connected", "description": "Each phase explicitly references or uses output from the previous phase"}
+      ]
+    },
+    {
+      "id": 31,
+      "name": "workflow-email-social-launch",
+      "prompt": "Plan a product launch for a new AI writing tool. First use /email-campaign to build a 3-email launch sequence, then /social-campaign for a 2-week social push on LinkedIn and Twitter.",
+      "expected_output": "Coordinated launch plan: email sequence (teaser, launch, follow-up) + social campaign with unified messaging across both channels",
+      "files": [],
+      "assertions": [
+        {"name": "has-3-launch-emails", "description": "Email sequence has teaser, launch day, and follow-up emails"},
+        {"name": "email-subject-lines-written", "description": "All 3 email subject lines and preview texts are written"},
+        {"name": "has-social-campaign-plan", "description": "Social campaign includes platform-specific content calendar"},
+        {"name": "messaging-aligned", "description": "Email and social copy share consistent key messages and value props"},
+        {"name": "has-launch-timing", "description": "Both email and social plans reference a coordinated launch date/window"},
+        {"name": "has-cta-consistency", "description": "Primary CTA (e.g., 'Try free') is consistent across email and social"}
+      ]
+    }
+  ]
+}
