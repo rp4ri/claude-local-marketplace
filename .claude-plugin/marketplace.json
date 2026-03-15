@@ -1,0 +1,21 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "claude-local-marketplace",
+  "description": "Personal marketplace with third-party Claude Code plugins",
+  "owner": {
+    "name": "rp4ri"
+  },
+  "plugins": [
+    {
+      "name": "design-studio",
+      "description": "A virtual design studio that assembles specialist roles for any design task. 27 slash commands covering full design workflows, Figma-native creation, design-to-code, brand kits, A/B variants, design sprints, prototyping, responsive variants, component docs, developer handoff, UX audits, and more.",
+      "version": "3.1.0",
+      "author": {
+        "name": "adityaraj0421"
+      },
+      "source": "./plugins/design-studio",
+      "category": "design",
+      "strict": false
+    }
+  ]
+}
