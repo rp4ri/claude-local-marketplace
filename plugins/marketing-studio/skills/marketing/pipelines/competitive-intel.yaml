@@ -1,0 +1,10 @@
+name: competitive-intel
+description: "Deep competitive marketing intelligence"
+steps:
+  - command: competitor-analysis
+    description: "Map competitor marketing strategies"
+  - command: ai-citations
+    description: "Audit AI citation landscape"
+  - command: content-plan
+    description: "Create content to fill gaps"
+on_error: stop

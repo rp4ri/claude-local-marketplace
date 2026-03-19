@@ -1,0 +1,14 @@
+name: product-launch
+description: "Full product launch marketing sequence"
+steps:
+  - command: marketing-init
+    description: "Set up project marketing context"
+  - command: competitor-analysis
+    description: "Analyze competitive landscape"
+  - command: seo-audit
+    description: "Audit and fix SEO before launch"
+  - command: content-plan
+    description: "Create pre-launch content calendar"
+  - command: launch-plan
+    description: "Generate launch day strategy"
+on_error: stop

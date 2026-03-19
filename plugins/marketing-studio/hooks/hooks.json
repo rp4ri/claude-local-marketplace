@@ -1,0 +1,8 @@
+{
+  "description": "Marketing Studio hooks — minimal, no prompt-type hooks to avoid latency",
+  "hooks": {
+    "SessionStart": [],
+    "PreToolUse": [],
+    "Stop": []
+  }
+}

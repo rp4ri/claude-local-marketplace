@@ -1,0 +1,10 @@
+name: content-cycle
+description: "Monthly content planning and optimization cycle"
+steps:
+  - command: seo-audit
+    description: "Check current SEO health"
+  - command: content-plan
+    description: "Plan next month's content"
+  - command: social-strategy
+    description: "Plan social distribution"
+on_error: stop

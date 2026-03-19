@@ -1,0 +1,16 @@
+{
+  "name": "marketing-studio",
+  "version": "1.0.0",
+  "description": "A virtual marketing team for Claude Code. Assembles specialist roles — SEO strategist, growth hacker, AI citation optimizer, content creator, social media strategist, and platform specialists — to plan and execute marketing for developer products, SaaS apps, and open-source projects. 8 roles, 10 commands.",
+  "author": {
+    "name": "rp4ri"
+  },
+  "keywords": [
+    "marketing", "seo", "growth-hacking", "content-strategy", "social-media",
+    "ai-citations", "aeo", "geo", "product-launch", "open-source-marketing",
+    "reddit", "twitter", "linkedin", "tiktok", "instagram",
+    "keyword-research", "link-building", "conversion-funnel", "viral-loops",
+    "thought-leadership", "developer-marketing", "saas-marketing",
+    "competitor-analysis", "content-calendar", "analytics"
+  ]
+}
