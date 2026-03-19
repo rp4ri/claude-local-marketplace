@@ -1,6 +1,6 @@
 # MCP Setup Guide
 
-Design Studio uses **4 optional MCP servers** for Figma integration, live preview, and website capture. All 19 commands degrade gracefully without them — you get markdown specs, CSS tokens, and HTML files instead of live Figma/preview workflows.
+Design Studio uses **4 optional MCP servers** for Figma integration, live preview, and website capture. All 60 commands degrade gracefully without them — you get markdown specs, CSS tokens, and HTML files instead of live Figma/preview workflows.
 
 ---
 
@@ -83,7 +83,7 @@ Design Studio uses **4 optional MCP servers** for Figma integration, live previe
 
 **Purpose**: Browser automation — navigate to URLs, capture screenshots, extract computed styles from live websites.
 
-**Used by**: `/site-to-figma` (primary), `/design-review` (optional live audit)
+**Used by**: `/design-compare`, `/competitive-audit`, `/site-to-figma`, `/design-review` (URL mode), `/design-critique` (--screenshot mode)
 
 **Setup**:
 ```json

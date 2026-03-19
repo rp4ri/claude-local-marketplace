@@ -1,0 +1,21 @@
+{
+  "name": "design-studio",
+  "owner": {
+    "name": "Aditya Raj",
+    "url": "https://github.com/Adityaraj0421"
+  },
+  "plugins": [
+    {
+      "name": "design-studio",
+      "source": "./",
+      "description": "A virtual design team for Claude Code — 26 roles, 60 commands, 13,800+ lines of expert design knowledge. Your agency's design brain, inside your terminal.",
+      "version": "4.8.0",
+      "author": {
+        "name": "Aditya Raj"
+      },
+      "repository": "https://github.com/Adityaraj0421/naksha-studio",
+      "license": "MIT",
+      "keywords": ["design", "ui", "ux", "figma", "frontend", "design-system", "components"]
+    }
+  ]
+}

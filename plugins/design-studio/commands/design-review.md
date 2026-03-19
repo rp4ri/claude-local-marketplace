@@ -1,5 +1,5 @@
 ---
-description: "Review an existing design for quality — accessibility, usability, visual consistency, content, and motion. Accepts HTML files, Figma URLs, preview servers, or screenshots for visual AI critique."
+description: "Review an existing design for quality — accessibility, usability, visual consistency, content, and motion. Accepts file paths, URLs, screenshots, or route descriptions."
 argument-hint: "[file path, URL, screenshot path, or 'current preview']"
 allowed-tools: ["Read", "Write", "Edit", "Bash", "Glob", "Grep", "mcp__*"]
 ---
@@ -8,20 +8,31 @@ allowed-tools: ["Read", "Write", "Edit", "Bash", "Glob", "Grep", "mcp__*"]
 
 You are conducting a structured design quality audit. This is a review, not a redesign.
 
+## Critical Rules
+
+**READ LOCAL FILES, NOT URLs.** When the user references a URL like `https://app.example.com/dashboard` or `localhost:5173/settings`, map it to the corresponding source files in the project directory. For SvelteKit: URL path `/dashboard` → `src/routes/dashboard/+page.svelte` (and its `+page.ts`, `+layout.svelte`, etc.). For Next.js: `/dashboard` → `app/dashboard/page.tsx`. You have direct filesystem access — use it. Only use Playwright to capture screenshots for visual analysis, never as a substitute for reading source code.
+
+**THINK LIKE AN END USER, NOT A DEVELOPER.** Evaluate content, copy, and information architecture from the perspective of someone using the app — not building it. A landing page that talks about "SvelteKit" and "Drizzle ORM" to end users is a critical content failure. CTAs should describe user value ("Start organizing your notes"), not technical actions ("Initialize repository"). Marketing pages sell benefits, not features.
+
+**REVIEW THE FULL SCOPE.** When the user asks to "analyze all pages" or "audit the whole app", systematically scan the routes directory to find every page. Don't stop at the first few — read the directory tree and review each route.
+
+**ACTIONABLE SUGGESTIONS ONLY.** Every issue must include a specific, implementable fix — not vague advice like "improve the hierarchy". Say exactly what to change: "Move the CTA button above the fold, increase font-size from 14px to 18px, change color from gray-500 to primary-600."
+
 ## Target
 
 Target: **$ARGUMENTS**
 
 The user will provide one of:
+- **A file path** (`.svelte`, `.tsx`, `.vue`, `.html`, etc.) → read it and run Code-Level Audit (Section B)
+- **A URL path or route description** (e.g., "the dashboard page", "/settings") → map to local source files, read them, run Code-Level Audit (Section B)
 - **A screenshot or image file** (`.png`, `.jpg`, `.gif`, `.webp`) → **Visual AI Critique Mode** (see Section A)
 - **A Figma URL** (contains `figma.com`) → screenshot it, then run Visual AI Critique + code audit
-- **An HTML file path** → read it and run Code-Level Audit (Section B)
-- **A running preview server** → take a screenshot for Visual AI Critique, then inspect code
+- **A live URL** (with Playwright available) → take screenshots for Section A, then read source for Section B
 - **"current preview"** → inspect whatever is currently being previewed
 
 **Dual-mode strategy**: When both a visual and code source are available (e.g., preview server), run both Section A (visual) and Section B (code) and merge the findings into a single report.
 
-**MCP Fallback**: If Preview MCP tools are unavailable, read the HTML source and perform a static code-level audit. If Figma MCP is unavailable, ask the user for a screenshot or file export.
+**MCP Fallback**: If Preview MCP tools are unavailable, read the source code and perform a static code-level audit. If Figma MCP is unavailable, ask the user for a screenshot or file export.
 
 ---
 
@@ -35,6 +46,17 @@ Use this section when the input is an image file, a Figma URL, or a captured pre
 - **Figma URL**: Call `figma_get_component_image` or `figma_take_screenshot` to export the frame
 - **Preview server**: Call `preview_screenshot` to capture the current state
 - **"current preview"**: Call `preview_screenshot`
+
+**Live Website URL (non-Figma):**
+If `$ARGUMENTS` contains a URL that is NOT a Figma URL (doesn't contain `figma.com`):
+1. Use `mcp__plugin_playwright_playwright__browser_resize` to set viewport to 1440×900
+2. Use `mcp__plugin_playwright_playwright__browser_navigate` to load the URL
+3. Use `mcp__plugin_playwright_playwright__browser_take_screenshot` to capture the current view
+4. Resize to 390×844 and take a second screenshot for mobile view
+5. Proceed with visual analysis using both screenshots as the design to review
+6. Note at top of output: "Captured from live URL: {url}"
+
+MCP Fallback: If Playwright is unavailable, ask the user to provide a screenshot file path.
 
 ### Visual Design Principles Scoring
 

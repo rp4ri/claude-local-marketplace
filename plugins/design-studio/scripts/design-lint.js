@@ -6,7 +6,6 @@
  * - Accessibility (semantic HTML, ARIA, alt text, lang attribute)
  * - Token compliance (hardcoded color/spacing values instead of CSS variables)
  * - Responsive design (missing meta viewport, fixed pixel widths)
- * - Contrast-critical patterns (common low-contrast text colors)
  *
  * Usage:
  *   node scripts/design-lint.js                  # reads CHANGED_FILES env var (CI mode)
@@ -24,7 +23,6 @@ const path = require('path');
 const DEFAULT_CONFIG = {
   failThreshold: 70,      // score below this fails CI
   warnOnTokens: true,     // warn when hardcoded colors/spacing found
-  checkContrast: true,    // check for common low-contrast patterns
   checkSemantic: true,    // check for semantic HTML
   checkResponsive: true,  // check for responsive design basics
   ignorePatterns: [],     // glob patterns to ignore
@@ -85,6 +83,7 @@ const CHECKS = [];
 // Accessibility checks (HTML only)
 CHECKS.push({
   name: 'html-lang',
+  configKey: 'checkSemantic',
   label: 'HTML lang attribute',
   type: 'html',
   severity: 'error',
@@ -98,6 +97,7 @@ CHECKS.push({
 
 CHECKS.push({
   name: 'img-alt',
+  configKey: 'checkSemantic',
   label: 'Image alt text',
   type: 'html',
   severity: 'error',
@@ -112,6 +112,7 @@ CHECKS.push({
 
 CHECKS.push({
   name: 'semantic-html',
+  configKey: 'checkSemantic',
   label: 'Semantic HTML',
   type: 'html',
   severity: 'warning',
@@ -127,6 +128,7 @@ CHECKS.push({
 
 CHECKS.push({
   name: 'button-vs-div',
+  configKey: 'checkSemantic',
   label: 'Button elements',
   type: 'html',
   severity: 'error',
@@ -141,6 +143,7 @@ CHECKS.push({
 
 CHECKS.push({
   name: 'viewport-meta',
+  configKey: 'checkResponsive',
   label: 'Viewport meta tag',
   type: 'html',
   severity: 'error',
@@ -154,6 +157,7 @@ CHECKS.push({
 
 CHECKS.push({
   name: 'input-label',
+  configKey: 'checkSemantic',
   label: 'Form input labels',
   type: 'html',
   severity: 'warning',
@@ -170,6 +174,7 @@ CHECKS.push({
 // Token compliance checks (CSS/HTML)
 CHECKS.push({
   name: 'hardcoded-hex',
+  configKey: 'warnOnTokens',
   label: 'CSS token compliance (colors)',
   type: 'css',
   severity: 'warning',
@@ -187,6 +192,7 @@ CHECKS.push({
 
 CHECKS.push({
   name: 'fixed-width',
+  configKey: 'checkResponsive',
   label: 'Responsive widths',
   type: 'css',
   severity: 'warning',
@@ -202,6 +208,7 @@ CHECKS.push({
 
 CHECKS.push({
   name: 'inline-styles',
+  configKey: 'warnOnTokens',
   label: 'Inline style attributes',
   type: 'html',
   severity: 'warning',
@@ -217,6 +224,7 @@ CHECKS.push({
 // Responsive checks
 CHECKS.push({
   name: 'media-queries',
+  configKey: 'checkResponsive',
   label: 'Responsive breakpoints',
   type: 'css',
   severity: 'warning',
@@ -243,6 +251,11 @@ function runChecks(file, content, type, config) {
   let passed = 0;
 
   for (const check of CHECKS) {
+    // Gate on config flag — skip check if explicitly disabled
+    if (check.configKey && config[check.configKey] === false) {
+      passed++;
+      continue;
+    }
     // Match check to file type ('html' checks run on HTML, 'css' checks run on CSS and HTML)
     if (check.type === 'css' && type === 'html' && !content.includes('<style')) {
       // HTML files without <style> blocks skip CSS checks

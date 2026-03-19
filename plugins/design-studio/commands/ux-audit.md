@@ -1,16 +1,87 @@
 ---
-description: "Audit a Figma file against a design brief — checks page structure, frame naming, sizes, styles, components, and content compliance."
-argument-hint: "[brief text or 'check current file']"
+description: "Audit UX across an entire app or Figma file — systematically reviews every page/route for usability, consistency, loading states, pagination, and user flow coherence."
+argument-hint: "[app description, route path, Figma URL, or 'audit all pages']"
 allowed-tools: ["Read", "Write", "Edit", "Bash", "Glob", "Grep", "mcp__*"]
 ---
 
 # /ux-audit
 
-You are running a compliance audit of a Figma file against a design brief. This checks whether a Figma deliverable meets all specified requirements.
+You are running a comprehensive UX audit. This works with both **code projects** (SvelteKit, Next.js, etc.) and **Figma files**.
 
 Input: **$ARGUMENTS**
 
-## Process
+## Determine Mode
+
+- If the input references a Figma URL → run **Figma Audit Mode** (Section F below)
+- If the input references files, routes, URLs, or says "audit all pages" → run **Code Audit Mode** (Section C below)
+- If unclear, check if the current directory has a `package.json` or `src/routes/` → Code Audit Mode. If it has Figma references → Figma Audit Mode.
+
+---
+
+## Section C: Code Audit Mode
+
+### 1. Discover All Routes
+
+Scan the project to build a complete route map:
+- **SvelteKit**: `find src/routes -name '+page.svelte'` — each is a page
+- **Next.js**: `find app -name 'page.tsx'` or `find pages -name '*.tsx'`
+- **Nuxt**: `find pages -name '*.vue'`
+
+List ALL discovered routes before proceeding. Do not skip any.
+
+### 2. Systematic Page-by-Page Audit
+
+For EACH route/page, read the source files (`+page.svelte`, `+page.ts`, `+layout.svelte`, related components) and evaluate:
+
+| Category | What to check |
+|----------|--------------|
+| **Loading states** | Does it have skeleton/loading UI while data loads? Are there empty states for no-data scenarios? |
+| **Pagination** | If it renders lists/tables, is there pagination or infinite scroll for large datasets? |
+| **Error handling** | Are there error boundaries? User-friendly error messages? Retry mechanisms? |
+| **Navigation** | Can the user get here from the sidebar/nav? Can they get back? Is the current route highlighted in nav? |
+| **Responsiveness** | Are Tailwind responsive classes used? Does the layout adapt for mobile? |
+| **Accessibility** | Keyboard navigation, focus management, ARIA labels, color contrast |
+| **Content hierarchy** | Is the most important information prominent? Is the layout scannable? |
+| **Consistency** | Does this page use the same patterns (spacing, colors, typography) as other pages? |
+| **User flow** | Does the feature make sense from a user perspective? Can they accomplish their goal? |
+
+### 3. Cross-Page Analysis
+
+After auditing individual pages, evaluate the app holistically:
+- **Navigation coherence**: Are all pages reachable? Are there orphan pages? Does the sidebar reflect the actual route structure?
+- **Pattern consistency**: Do similar features (forms, tables, cards) use the same components/patterns across pages?
+- **Feature completeness**: Are there references to features that don't exist yet (dead links, placeholder pages)?
+- **Data presentation**: Is information presented in the most appropriate way? (tables vs cards vs charts)
+
+### 4. Generate Report
+
+```markdown
+## UX Audit Report
+
+### Route Map
+[List all discovered routes with brief description]
+
+### Critical Issues (must fix)
+[Issues that break user flows or prevent task completion]
+
+### UX Improvements (should fix)
+[Issues that degrade experience: missing loading states, no pagination, poor mobile layout]
+
+### Consistency Issues
+[Patterns that vary across pages when they shouldn't]
+
+### Missing Features
+[Expected UX patterns that are absent: empty states, error recovery, keyboard shortcuts]
+
+### Page-by-Page Summary
+| Route | Loading | Pagination | Errors | Mobile | Score |
+|-------|---------|-----------|--------|--------|-------|
+| /dashboard | ⚠️ | ✅ | ❌ | ✅ | 6/10 |
+```
+
+---
+
+## Section F: Figma Audit Mode
 
 ### 1. Parse the Brief
 

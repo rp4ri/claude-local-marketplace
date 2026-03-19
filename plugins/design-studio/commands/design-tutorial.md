@@ -1,6 +1,7 @@
 ---
 name: design-tutorial
 description: Interactive guided tour of Design Studio — learn commands through real exercises, discover workflows, and get oriented in under 10 minutes
+allowed-tools: ["Read", "Write", "Edit", "Bash", "Glob", "Grep", "mcp__*"]
 triggers:
   - tutorial
   - getting started
@@ -28,7 +29,12 @@ Interactive guided tour of Design Studio. Choose a track below and complete a re
 - `/design-tutorial social` — Design a post, plan a campaign, build a performance dashboard
 - `/design-tutorial email` — Build a welcome email template and a 3-email onboarding sequence
 - `/design-tutorial data-viz` — Design a bar chart, then build a full analytics dashboard
-- `/design-tutorial full` — Complete tour: all wings, all workflows (~30 min)
+- `/design-tutorial ai-visual-gen` — Generate image prompts, video briefs, and moodboards
+- `/design-tutorial print-pdf` — Build a print layout, PDF report, and run a preflight audit
+- `/design-tutorial conversational` — Design a chatbot UI, voice interface, and pipeline chain
+- `/design-tutorial spatial` — Build a visionOS spec, AR overlay, and audit a competitor
+- `/design-tutorial compliance` — Generate GDPR consent flow, HIPAA audit, and set up project memory
+- `/design-tutorial full` — Complete tour: all wings, all workflows (~45 min)
 
 ---
 
@@ -49,7 +55,7 @@ If no track is given, display this orientation:
 ```
 ╔══════════════════════════════════════════════════════════════════╗
 ║                    Welcome to Design Studio                      ║
-║                         v2.9.0 · 26 commands                    ║
+║                         v4.8.0 · 60 commands                    ║
 ╚══════════════════════════════════════════════════════════════════╝
 
 Design Studio assembles specialist roles for any design task.
@@ -65,6 +71,11 @@ You give a goal. The right experts activate automatically.
   Data Visualization       /chart-design /dashboard-layout
   Framework Code           /design-framework (React/Vue/Svelte/Next.js/Astro)
   Templates                /design-template (10 production-ready layouts)
+  AI Visual Gen            /gen-image /gen-video /gen-audio /gen-moodboard /prompt-refine
+  Print / PDF              /pdf-report /print-layout /print-audit
+  Frontier Wings           /design-chatbot /design-voice-ui /design-spatial /design-ar-overlay
+                           /design-gdpr /design-compliance
+  Memory & Pipelines       /studio-init /studio-status /pipeline /design-compare /competitive-audit
 
 ━━━ Choose a learning track ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -74,7 +85,12 @@ You give a goal. The right experts activate automatically.
   4. social       15 min  Post design → campaign → analytics dashboard
   5. email        15 min  Welcome template → onboarding sequence
   6. data-viz     15 min  Chart design → full dashboard
-  7. full         30 min  Complete tour of all wings
+  7. ai-visual-gen  15 min  Generate images, video briefs, audio specs, moodboards
+  8. print-pdf      15 min  Build a print layout, PDF report, preflight audit
+  9. full           45 min  Complete tour: all wings, all workflows (~45 min)
+ 10. conversational 15 min  Chatbot UI → voice interface → pipeline chaining
+ 11. spatial        15 min  visionOS spec → AR overlay → competitive audit
+ 12. compliance     15 min  GDPR consent → HIPAA audit → project memory
 
 Reply with a number or track name to begin.
 ```
@@ -327,9 +343,265 @@ After reviewing the card output, run:
 
 ---
 
+### TRACK: ai-visual-gen
+
+**Goal:** Generate an image prompt → produce a video brief → build a moodboard.
+
+---
+
+**Exercise 1 of 3 — Generate an Image**
+
+Run this command now:
+
+```
+/gen-image hero illustration for a SaaS landing page: abstract, minimal, blue palette
+```
+
+> **What to watch for:** The AI Image Director produces a structured prompt optimized for Midjourney/DALL-E/Firefly — negative prompts, aspect ratio, style references, and seed suggestions. Output is a ready-to-paste generation prompt, not a generic description.
+
+Once you see the output, continue to Exercise 2.
+
+---
+
+**Exercise 2 of 3 — Write a Video Brief**
+
+Run:
+
+```
+/gen-video 15-second product launch teaser. Tone: confident, modern. No voiceover.
+```
+
+> **What to watch for:** The AI Video Director outputs a shot-by-shot brief with scene timing, motion direction, music mood, and color grading notes — everything a motion designer needs without a briefing call.
+
+---
+
+**Exercise 3 of 3 — Build a Moodboard**
+
+Run:
+
+```
+/gen-moodboard brand moodboard for the SaaS product above. Style: clean tech, trustworthy.
+```
+
+> **What to watch for:** The moodboard command assembles visual direction references — typography pairings, color story, photography style, UI texture — as a structured brief you can drop into Figma or hand to a visual designer.
+
+---
+
+**AI Visual Gen track complete.** You've seen:
+- `/gen-image` → structured generation prompt optimized for AI tools
+- `/gen-video` → shot-by-shot motion brief
+- `/gen-moodboard` → brand visual direction brief
+
+**Suggested next tracks:**
+- `/design-tutorial print-pdf` for the print/PDF pipeline
+- `/design-tutorial full` for the complete tour
+
+---
+
+### TRACK: print-pdf
+
+**Goal:** Design a print layout → generate a multi-page PDF report → run a preflight audit.
+
+---
+
+**Exercise 1 of 3 — Create a Print Layout**
+
+Run this command now:
+
+```
+/print-layout business card for Design Studio — name: Alex Rivera, title: Design Lead. Minimal style.
+```
+
+> **What to watch for:** The Print Designer applies bleed/trim/safe-zone geometry, CMYK color documentation, and CSS Paged Media rules. Output is production-ready CSS you can send straight to a print vendor.
+
+Once you see the output, continue to Exercise 2.
+
+---
+
+**Exercise 2 of 3 — Generate a PDF Report**
+
+Run:
+
+```
+/pdf-report quarterly design system status report. Sections: Executive Summary, Token Changes, Component Updates, Accessibility Score.
+```
+
+> **What to watch for:** Multi-page layout with `@page` rules, named pages, running headers/footers, TOC, and widows/orphans control. The kind of report that usually requires InDesign — generated in one command.
+
+---
+
+**Exercise 3 of 3 — Run a Preflight Audit**
+
+Take the business card CSS from Exercise 1 and run:
+
+```
+/print-audit [paste the business card CSS from Exercise 1]
+```
+
+> **What to watch for:** Two-phase audit — Phase 1 always runs (bleed geometry, CMYK values, font embedding, page-break rules). Phase 2 runs if brand context is provided. Output is a scored preflight checklist with specific fixes.
+
+---
+
+**Print / PDF track complete.** You've seen:
+- `/print-layout` → production-ready CSS with bleed, CMYK, and CSS Paged Media
+- `/pdf-report` → multi-page report with `@page` rules, TOC, and running headers
+- `/print-audit` → two-phase preflight audit
+
+**Suggested next:**
+- `/design-tutorial full` for the complete tour
+
+---
+
+### TRACK: conversational
+
+**Goal:** Design a chatbot UI, a voice interface, and chain them through a pipeline — see how Design Studio handles multi-modal conversational products.
+
+---
+
+**Exercise 1 of 3 — Chatbot UI**
+
+Run this command now:
+
+```
+/design-chatbot customer support assistant. Platform: web. Persona: friendly, concise.
+```
+
+> **What to watch for:** Five-section output — persona spec, dialog flow map (intent → response → fallback), message bubble UI spec (user vs. assistant styling, max-width, padding), quick reply component patterns, and an accessibility checklist (tab order, ARIA live regions, keyboard trap prevention).
+
+---
+
+**Exercise 2 of 3 — Voice Interface**
+
+```
+/design-voice-ui smart home assistant. Platform: custom device. Screen: hybrid (4" display).
+```
+
+> **What to watch for:** Wake word flow diagram, confirmation pattern table (explicit for destructive actions, implicit for routine ones), hybrid screen layout spec showing how the small display complements voice output, SSML guidelines (pause, emphasis, `<say-as interpret-as="currency">`), and earcon frequency/duration spec.
+
+---
+
+**Exercise 3 of 3 — Pipeline Chaining**
+
+```
+/pipeline run conversational-launch
+```
+
+> **What to watch for:** If `conversational-launch` isn't defined, the pipeline command will output a manual checklist of steps instead — that's the MCP Fallback in action. Try `/pipeline list` to see available pipelines, then `/pipeline run launch-prep` for a working example.
+
+---
+
+**Conversational track complete.** You've seen:
+- `/design-chatbot` → persona, dialog flows, bubble UI, accessibility
+- `/design-voice-ui` → wake word, confirmation patterns, hybrid layout, SSML
+- `/pipeline` → multi-command chaining with fallback mode
+
+**Suggested next:**
+- `/design-tutorial spatial` for the Spatial & AR wing
+- `/design-tutorial full` for the complete tour
+
+---
+
+### TRACK: spatial
+
+**Goal:** Design a visionOS app, an AR overlay, and audit a competitor's spatial design — the full Spatial & AR wing in three exercises.
+
+---
+
+**Exercise 1 of 3 — Spatial App (visionOS)**
+
+Run this command now:
+
+```
+/design-spatial productivity app. Platform: visionOS. App type: utility.
+```
+
+> **What to watch for:** Depth hierarchy document (background layer / secondary layer / primary interaction layer / overlay layer with `44pt × distance_in_meters` formula), window type selection rationale (Window vs. Volumetric vs. Immersive Space), ornament placement using `attachmentAnchor` API guidance, spatial typography scale (minimum 11sp at 2m viewing distance), and comfort guidelines (max 90-min session, 60° horizontal field).
+
+---
+
+**Exercise 2 of 3 — AR Overlay**
+
+```
+/design-ar-overlay assembly instructions for a product. Platform: ARKit.
+```
+
+> **What to watch for:** Anchor strategy selection (image vs. object vs. plane anchor), world tracking UI spec for 3 states (Searching / Anchor Found / Tracking Lost), instruction card pattern positioned within ±20° gaze range of the tracked object, scan state designs, and occlusion handling approach.
+
+---
+
+**Exercise 3 of 3 — Competitive Audit**
+
+```
+/competitive-audit https://www.apple.com/apple-vision-pro/
+```
+
+> **What to watch for:** If Playwright is available, this captures the page and extracts color palette, type system, layout patterns, and UX patterns — then produces a "Steal This" table with ⭐ quality ratings. If Playwright is unavailable, the MCP Fallback prompts for a screenshot.
+
+---
+
+**Spatial track complete.** You've seen:
+- `/design-spatial` → depth hierarchy, window types, ornaments, comfort guidelines
+- `/design-ar-overlay` → anchor strategy, world tracking UI, scan states
+- `/competitive-audit` → design system extraction with "Steal This" recommendations
+
+**Suggested next:**
+- `/design-tutorial compliance` for the Compliance wing
+- `/design-tutorial full` for the complete tour
+
+---
+
+### TRACK: compliance
+
+**Goal:** Generate a GDPR consent flow, run a HIPAA compliance audit, and set up project memory — the Compliance wing plus the memory command that saves your decisions.
+
+---
+
+**Exercise 1 of 3 — GDPR Consent Flow**
+
+Run this command now:
+
+```
+/design-gdpr SaaS analytics product. Jurisdiction: EU. Consent categories: analytics, marketing.
+```
+
+> **What to watch for:** Three cookie banner variants (minimal one-line / standard two-button / detailed category-toggle), consent flow UI spec showing the progressive disclosure model, privacy control center wireframe with data export and deletion request flows, and a jurisdiction checklist covering IAB TCF compliance and legitimate interest documentation.
+
+---
+
+**Exercise 2 of 3 — HIPAA Compliance Audit**
+
+```
+/design-compliance --regulation hipaa patient dashboard with appointment booking and lab results
+```
+
+> **What to watch for:** PHI field marking spec (all 18 HIPAA identifiers flagged with visual indicators), 15-minute session timeout design (idle warning at 13 min, hard logout at 15 min), audit log display component, and access control UI patterns. Note the `--regulation` flag — without it, the command outputs an error block explaining the required format.
+
+---
+
+**Exercise 3 of 3 — Project Memory**
+
+```
+/studio-init
+```
+
+> **What to watch for:** Interactive wizard prompting for project name, brand colors, font, framework (React/Vue/Svelte/Next.js/Astro/HTML), and token format (CSS vars/Tailwind/Style Dictionary). Writes `.design-studio/project.json` and creates `.design-studio/memory.md`. After running this once, commands like `/design` and `/brand-kit` will automatically load your project context.
+
+---
+
+**Compliance track complete.** You've seen:
+- `/design-gdpr` → consent flows, cookie banners, privacy controls
+- `/design-compliance` → regulated UI (HIPAA, PCI, ADA) with `--regulation` flag
+- `/studio-init` → project memory setup for persistent brand/framework context
+
+**Suggested next:**
+- `/studio-status` to view saved project context
+- `/design-tutorial full` for the complete tour
+
+---
+
 ### TRACK: full
 
-**Goal:** Complete tour of all 8 design wings.
+**Goal:** Complete tour of all design wings — UI, Figma, Social, AI Visual Gen, Email, Data Viz, Print/PDF, and Handoff.
 
 Run each exercise in order. Each builds on the last.
 
@@ -341,12 +613,19 @@ Run each exercise in order. Each builds on the last.
 6. **Template** → `/design-template landing-page --style minimal`
 7. **Figma Creation** → `/figma-create a hero section with the brand kit above`
 8. **Social** → `/social-content Instagram Story: launch announcement for the product above`
-9. **Email** → `/email-template welcome email with the brand kit above`
-10. **Data Viz** → `/chart-design user signups last 30 days as a line chart`
-11. **Dashboard** → `/dashboard-layout growth dashboard: signups KPI, revenue KPI, activation rate, chart area`
-12. **Handoff** → `/design-handoff generate developer spec for everything above`
+9. **★ AI Image** → `/gen-image hero illustration for the product above. Style: minimal, abstract, blue palette`
+10. **★ AI Moodboard** → `/gen-moodboard brand visual direction for the product above. Tone: trustworthy, modern`
+11. **Email** → `/email-template welcome email with the brand kit above`
+12. **Data Viz** → `/chart-design user signups last 30 days as a line chart`
+13. **Dashboard** → `/dashboard-layout growth dashboard: signups KPI, revenue KPI, activation rate, chart area`
+14. **★ Print Layout** → `/print-layout business card with the brand kit above. Name: Alex Rivera, Design Lead`
+15. **★ PDF Report** → `/pdf-report design system status report. Sections: Summary, Token Changes, Component Coverage`
+16. **Handoff** → `/design-handoff generate developer spec for everything above`
+17. **★ Chatbot** → `/design-chatbot customer support assistant for the product above. Platform: web.`
+18. **★ Compliance** → `/design-gdpr for the product above. Jurisdiction: EU. Categories: analytics, marketing.`
+19. **★ Pipeline** → `/pipeline run launch-prep`
 
-> This is the full Design Studio workflow — idea to developer-ready in 12 commands.
+> This is the full Design Studio workflow — idea to developer-ready, compliance-checked, and pipeline-automated in 19 commands.
 
 ---
 
@@ -361,21 +640,49 @@ You've learned: [list the commands used in this track]
 
 ━━━ Explore more ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-  All 26 commands:
+  All 60 commands:
 
-  Core Design     /design /design-review /design-system /brand-kit
+  Core Design     /design /design-review /design-critique /design-qa
+                  /design-system /brand-kit /brand-strategy
                   /design-sprint /design-present /design-handoff
+
   Figma           /figma /figma-create /figma-responsive /figma-prototype
-                  /figma-sync /ux-audit /ab-variants /site-to-figma
-                  /component-docs
+                  /figma-sync /figma-component-library /ab-variants /site-to-figma
+
+  QA & Audit      /ux-audit /accessibility-audit /lint-design /component-docs /design-score
+
   Social          /social-content /social-campaign /social-analytics
+
+  Email           /email-template /email-campaign /email-audit
+
+  Data Viz        /chart-design /dashboard-layout /data-viz-audit
+
   Framework       /design-framework
-  Email           /email-template /email-campaign
+
+  AI Visual Gen   /gen-image /gen-video /gen-audio /gen-moodboard /prompt-refine
+
+  Print / PDF     /pdf-report /print-layout /print-audit
+
+  Media           /illustration-system /motion-design /presentation-design /video-script
+
   Templates       /design-template
-  Data Viz        /chart-design /dashboard-layout
+
+  Memory          /studio-init /studio-status /studio-doctor
+
+  Pipelines       /pipeline
+
+  Vision          /design-compare /competitive-audit
+
+  Conversational  /design-chatbot /design-voice-ui
+
+  Spatial & AR    /design-spatial /design-ar-overlay
+
+  Compliance      /design-gdpr /design-compliance
+
   Tutorial        /design-tutorial
 
   Run /design-tutorial <track> to explore another wing.
+  Tracks: quick-start · ui · figma · social · email · data-viz · ai-visual-gen · print-pdf · conversational · spatial · compliance · full
   Run /design <anything> to start real work.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

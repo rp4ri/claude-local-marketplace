@@ -1,16 +1,22 @@
 <div align="center">
 
-<img src="assets/social-preview.svg" alt="Design Studio — Structured design knowledge for Claude Code" width="640">
+# design-studio
 
-<br><br>
+**Your agency's design brain. Always on, always yours.**
+
+*The Design Studio design team, inside your terminal — 26 specialist roles activate automatically based on what you're building.*
+
+<br>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude_Code-Plugin-blueviolet)](https://claude.ai/claude-code)
-[![Roles](https://img.shields.io/badge/Specialist_Roles-9-orange)]()
-[![Commands](https://img.shields.io/badge/Slash_Commands-27-green)]()
-[![Design Knowledge](https://img.shields.io/badge/Design_Knowledge-8500%2B_lines-ff69b4)]()
-
-**Instead of generic AI design help, Design Studio loads specialized design knowledge for each task — the right expertise activates based on what you're building.**
+[![Cursor](https://img.shields.io/badge/Cursor-Rules-black)]()
+[![Windsurf](https://img.shields.io/badge/Windsurf-Rules-0099ff)]()
+[![Gemini CLI](https://img.shields.io/badge/Gemini_CLI-GEMINI.md-4285F4)]()
+[![Copilot](https://img.shields.io/badge/Copilot-Instructions-24292e)]()
+[![Roles](https://img.shields.io/badge/Specialist_Roles-26-orange)]()
+[![Commands](https://img.shields.io/badge/Slash_Commands-60-green)]()
+[![Design Knowledge](https://img.shields.io/badge/Design_Knowledge-13800%2B_lines-E8633A)]()
 
 [Quick Start](#-quick-start) · [Commands](#-commands) · [The Team](#-the-team) · [How It Works](#-how-it-works) · [Changelog](CHANGELOG.md)
 
@@ -20,35 +26,35 @@
 
 ## 🚀 Quick Start
 
+### Claude Code (full plugin — 60 commands, agents, hooks)
+
 ```bash
-git clone https://github.com/Adityaraj0421/design-studio.git ~/.claude/plugins/design-studio
+git clone https://github.com/Adityaraj0421/naksha-studio.git
+cd design-studio && bash install.sh
 ```
 
-Then try:
+Then restart Claude Code and try:
 ```
 /design Build a landing page for a SaaS analytics product
 ```
 
----
+> **Updates:** Just `git pull` inside the repo — no reinstall needed. The plugin is a live symlink to your local clone.
 
-## ⚡ Demo
+### Cursor
 
-<div align="center">
-<img src="assets/demo.svg" alt="Design Studio demo — building a pricing page" width="720">
-</div>
+Copy `.cursor/rules/studio.mdc` to your project's `.cursor/rules/` directory. The design team activates automatically for CSS, HTML, TSX, SVG, and token files.
 
-<br>
+### Windsurf
 
-Running `/design Build a pricing page with monthly/annual toggle` automatically loads UI Designer, Content Designer, Motion Designer, and Design System Lead references — each contributing their specific knowledge to the output. A button redesign loads 1–2 references. A full product feature loads 4–7.
+Copy `.windsurfrules` to your project root. Windsurf reads it automatically at session start.
 
-<details>
-<summary><b>More examples</b></summary>
+### Gemini CLI
 
-<div align="center">
-<img src="assets/demo-commands.svg" alt="Design Studio command examples — design-review, brand-kit, figma-create, design-sprint" width="820">
-</div>
+Copy `GEMINI.md` to your project root. Gemini CLI reads it at session start.
 
-</details>
+### VS Code Copilot
+
+Copy `.github/copilot-instructions.md` to your project's `.github/` directory. Copilot Chat and inline completions will apply the design team's rules.
 
 ---
 
@@ -179,6 +185,76 @@ Charts
 Layouts
 
 </td>
+<td align="center">
+
+**Presentation Designer**
+
+Decks
+
+</td>
+<td align="center">
+
+**Brand Strategist**
+
+Positioning
+
+</td>
+<td align="center">
+
+**Illustration Director**
+
+Icons & Art
+
+</td>
+<td align="center">
+
+**Video/Content Producer**
+
+Scripts
+
+</td>
+</tr>
+<tr>
+<td align="center">
+
+**AI Image Director**
+
+Image Gen
+
+</td>
+<td align="center">
+
+**AI Video Director**
+
+Video Gen
+
+</td>
+<td align="center">
+
+**AI Audio & Voice Producer**
+
+Voiceover & Music
+
+</td>
+<td align="center">
+
+**AI Prompt Engineer**
+
+Prompt Systems
+
+</td>
+<td align="center" colspan="3">
+
+</td>
+</tr>
+<tr>
+<td align="center">
+
+**Print Designer**
+
+Print & PDF
+
+</td>
 </tr>
 <tr>
 <td align="center" colspan="7">
@@ -217,11 +293,52 @@ _The skill loads only the references your task actually needs_
 | `/design-framework <fw> [file]` | Convert HTML designs to React, Vue, Svelte, Next.js, or Astro |
 | `/email-template <type> for <brand>` | Production HTML email template (responsive, dark mode, cross-client) |
 | `/email-campaign <type> for <product>` | Complete multi-email campaign sequence with copy and HTML templates |
+| `/email-audit` | Full-spectrum email audit — technical rendering issues + copy/strategy critique (two-phase) |
 | `/design-template <category>` | Production web template from gallery (landing-page, dashboard, pricing, auth, blog, ecommerce, portfolio, docs, saas, onboarding) |
 | `/chart-design <description>` | Accessible chart or data visualization — selects chart type, applies colorblind-safe palette, outputs HTML/CSS/JS |
 | `/dashboard-layout <description>` | Complete dashboard — KPI cards, chart areas, filter bar, data table, sidebar, responsive |
+| `/data-viz-audit` | Audit chart type, palette, annotations, anti-patterns. Conditional Phase 2: dashboard fit |
 | `/design-tutorial [track]` | Interactive guided tour — tracks: quick-start, ui, figma, social, email, data-viz, full |
 | `/figma-component-library <description>` | Complete Figma component library — atoms, molecules, organisms with variants, auto layout, component properties |
+| `/motion-design <component or page>` | Design micro-interactions, transitions, and animation systems — duration/easing scale, reduced motion fallbacks |
+| `/presentation-design <deck type>` | Design a complete presentation deck — pitch deck, product demo, or internal — with slide system and visual hierarchy |
+| `/brand-strategy <brand name>` | Define or audit a brand — positioning, visual identity, voice and tone, brand architecture |
+| `/illustration-system <scope>` | Design an illustration style guide, icon system, or SVG asset set |
+| `/video-script <video type>` | Write a video script, storyboard, or content series plan for demos, explainers, social video, or ads |
+| `/gen-image <subject> for <brand>` | Generate a brand-aligned AI image — tool selection (MJ/DALL-E/Ideogram/Firefly/SD), full 6-element prompt, 2 variations, seed strategy |
+| `/gen-video <scene> for <platform>` | Generate a shot-by-shot AI video prompt pack — tool selection (Runway/Kling/Sora/Pika/Luma), consistency strategy, platform spec |
+| `/gen-audio <voice or music> for <platform>` | Generate an AI audio brief — voiceover (ElevenLabs/Murf) or music/jingle (Suno), timing cues, FTC/EU AI Act compliance |
+| `/gen-moodboard <concept> for <brand>` | Generate 3 AI moodboard directions — brand personality extraction, visual style, 4–6 prompts per direction |
+| `/prompt-refine <existing prompt>` | Diagnose and optimise any AI gen prompt — annotated critique, optimised version, cross-tool variant |
+| `/print-layout <brief>` | Print-ready layout — business cards, certificates, brochures, posters with CMYK, bleed, and crop marks |
+| `/print-audit <file>` | Pre-flight audit for print: bleed, CMYK, resolution, font embedding, PDF/X compliance |
+| `/pdf-report <brief>` | Multi-page PDF report or document — cover, table of contents, body sections, charts, structured for print or digital |
+| `/lint-design <figma_url>` | Design linter — orphan colors, non-token spacing, missing auto-layout, contrast violations, scored by severity |
+| `/accessibility-audit` | WCAG 2.1 AA audit — contrast, ARIA, keyboard nav, semantic HTML — with specific code fixes |
+| `/design-qa <file or URL>` | Visual QA at 3 breakpoints — token compliance, interaction states, responsive behavior |
+| `/design-critique <file>` | Heuristic review — Nielsen's 10 heuristics, visual audit, interaction states; add `--screenshot <path>` for vision-mode critique |
+
+**v4.0.0 — Memory, Pipelines, Vision & Frontier Wings**
+
+| `/studio-init` | Interactive project setup wizard — writes `.design-studio/project.json` (brand, framework, tokens) and creates a design decision log |
+| `/studio-status` | Display current project context and recent design decisions from memory |
+| `/pipeline run <name>` | Execute a multi-step design pipeline — `launch-prep`, `brand-audit`, `component-build`, `social-launch` |
+| `/design-compare <url1> <url2>` | Side-by-side visual analysis of two URLs — layout, typography, color, UX patterns, "Steal This" recommendations |
+| `/competitive-audit <url>` | Extract a competitor's color palette, type system, layout grid, and UX patterns with quality ratings |
+| `/design-chatbot <type> [platform]` | Complete chatbot/assistant UI spec — persona, dialog flows, message bubbles, quick replies, error states, accessibility |
+| `/design-voice-ui <product> [platform] [screen]` | Voice interface spec — wake word flows, confirmation patterns, hybrid screen layout, SSML, earcon design |
+| `/design-spatial <type> [platform]` | Spatial computing spec for visionOS/WebXR — depth hierarchy, window types, ornaments, spatial typography |
+| `/design-ar-overlay <use-case> [platform]` | AR overlay spec — anchor strategy, world tracking UI, instruction cards, scan states, occlusion handling |
+| `/design-gdpr <type> [jurisdiction]` | GDPR/CCPA consent flows — cookie banner variants, privacy control center, data deletion request flow |
+| `/design-compliance --regulation <hipaa\|pci\|ada>` | Compliance design audit or generation — HIPAA PHI handling, PCI payment form isolation, ADA/Section 508 |
+
+**v4.6.0 — CI/CD & Health**
+
+| `/studio-doctor [--fix]` | Plugin health check — validates command count, references, version consistency, allowed-tools; probes Playwright + Figma MCP availability; `--fix` remediates issues automatically |
+
+**v4.7.0 — Design Intelligence**
+
+| `/design-score <file or URL>` | Quantitative 0–100 design score across 4 dimensions: Accessibility (WCAG), Usability (Nielsen), Visual Quality, Token Compliance — ASCII bar chart, A–F grade |
 
 <details>
 <summary><b>📖 Command details & examples</b></summary>
@@ -534,7 +651,7 @@ New to Design Studio? Run a guided tour with real exercises:
 /design-tutorial social             # 15 min: post design → campaign → analytics
 /design-tutorial email              # 15 min: welcome template → onboarding sequence
 /design-tutorial data-viz           # 15 min: chart design → full dashboard
-/design-tutorial full               # 30 min: complete tour of all 8 wings
+/design-tutorial full               # 30 min: complete tour of all 9 wings
 ```
 
 Each track produces real output — you're not just reading docs, you're running commands. The quick-start track covers the three most common commands (`/design`, `/design-review`, `/design-framework`) in under 5 minutes.
@@ -585,6 +702,19 @@ Commands chain together. Each command suggests relevant next steps:
 | Full analytics build | `/brand-kit` → `/dashboard-layout` → `/chart-design` → `/design-handoff` |
 | First-time user | `/design-tutorial quick-start` → `/design-tutorial <track>` → `/design <task>` |
 | Full design system | `/brand-kit` → `/figma-component-library` → `/design-handoff` → `/design-framework` |
+| Brand launch | `/brand-strategy` → `/brand-kit` → `/illustration-system` → `/social-content` |
+| Pitch deck | `/brand-strategy` → `/presentation-design` → `/design-present` |
+| Motion system | `/design-system` → `/motion-design` → `/design-review` |
+| Video + social | `/video-script` → `/social-content` → `/social-campaign` |
+| Full identity system | `/brand-strategy` → `/brand-kit` → `/illustration-system` → `/figma-component-library` |
+| Project setup | `/studio-init` → `/brand-kit` → `/design-system` → `/design` |
+| Pre-launch pipeline | `/pipeline run launch-prep` |
+| Competitor research | `/competitive-audit` → `/design-compare` → `/design` |
+| Chatbot + voice | `/design-chatbot` → `/design-voice-ui` → `/design-system` |
+| Spatial app | `/design-spatial` → `/design-ar-overlay` → `/design-system` |
+| GDPR + compliance | `/design-gdpr` → `/design-compliance --regulation ada` |
+| Design quality gate | `/design` → `/design-score` → `/design-review` |
+| Plugin health check | `/studio-doctor` → `/studio-doctor --fix` |
 
 ---
 
@@ -623,27 +753,7 @@ node scripts/design-lint.js src/**/*.html src/**/*.css
 
 ## ⚙️ How It Works
 
-```mermaid
-graph TB
-    A["🎯 Your Request"] --> B["🧑‍💼 Design Manager"]
-    B --> C["🎬 Creative Director"]
-    C --> D["🔍 Research"]
-    C --> E["📐 Strategy"]
-    C --> F["🎨 Creative"]
-    D --> G["⚡ Build & Polish"]
-    E --> G
-    F --> G
-    G --> H["📦 Delivery"]
-
-    style A fill:#818cf8,stroke:#6366f1,color:#fff
-    style B fill:#1e293b,stroke:#475569,color:#f8fafc
-    style C fill:#1e293b,stroke:#475569,color:#f8fafc
-    style D fill:#0f172a,stroke:#334155,color:#94a3b8
-    style E fill:#0f172a,stroke:#334155,color:#94a3b8
-    style F fill:#0f172a,stroke:#334155,color:#94a3b8
-    style G fill:#1e293b,stroke:#475569,color:#f8fafc
-    style H fill:#22c55e,stroke:#16a34a,color:#fff
-```
+When you run a command, the Design Manager reads your request and assembles the right specialist roles from `skills/design/references/`. Each role contributes its knowledge — UI Designer for color and typography, Motion Designer for animation, Design System Lead for tokens, and so on. The assembled team runs the full workflow: research, strategy, creative, build, and delivery.
 
 **Adaptive loading:** A simple button redesign loads 1–2 references. A full product feature loads 4–7 references with the complete workflow.
 
@@ -656,8 +766,10 @@ graph TB
 | **accessibility-auditor** | Comprehensive WCAG AA compliance audit with specific code fixes | Background |
 | **design-qa** | Visual QA at 3 breakpoints, token compliance scoring, interaction state check | Background |
 | **figma-creator** | Creates pages, frames, components, and styles directly in Figma via Desktop Bridge | Foreground |
-| **design-critique** | Automated UX heuristic review — Nielsen's 10 heuristics, visual audit, interaction states | Foreground |
-| **design-lint** | Scans Figma files for orphan colors, non-standard spacing, low contrast, missing auto-layout | Foreground |
+| **design-critique** | Automated UX heuristic review — Nielsen's 10 heuristics, visual audit, interaction states + 4-dimension scoring | Foreground |
+| **design-lint** | Scans Figma files for orphan colors, non-standard spacing, low contrast, missing auto-layout (haiku model) | Foreground |
+| **design-token-extractor** | Extracts design tokens from CSS/Figma files — color, typography, spacing, shadows (haiku model) | Background |
+| **design-score** | Quantitative design scorer — derives Accessibility, Usability, Visual Quality, Token Compliance dimensions | Foreground |
 
 Background agents run in parallel with your main work. Foreground agents run interactively.
 
@@ -713,37 +825,54 @@ Settings marked `"auto"` or left empty defer to auto-detection. The Design Manag
 
 ```
 design-studio/
-├── .claude-plugin/plugin.json          # Plugin manifest (v2.1.1)
+├── .claude-plugin/plugin.json          # Plugin manifest (v4.8.0)
 ├── skills/design/
 │   ├── SKILL.md                        # Design Manager orchestration
 │   ├── settings.local.md              # User-configurable preferences
-│   └── references/
+│   └── references/                     # 32 specialist role knowledge bases
 │       ├── product-designer.md         # End-to-end UX, feature scoping
 │       ├── ux-designer.md              # Flows, wireframes, IA
 │       ├── ui-designer.md              # Color, typography, layout, components
 │       ├── ux-researcher.md            # Heuristics, accessibility, edge cases
 │       ├── content-designer.md         # Microcopy, errors, tone of voice
 │       ├── design-system-lead.md       # 3-tier tokens, theming, dark mode, Figma styles
-│       ├── motion-designer.md          # Timing, easing, micro-interactions
+│       ├── motion-designer.md          # Timing, easing, micro-interactions, FLIP
 │       ├── figma-workflow.md           # Figma MCP tools, design-to-code + creation
 │       ├── figma-creation.md           # Figma API patterns via Desktop Bridge
-│       └── deployment.md              # Preview server, Firebase Hosting
-├── commands/                           # 20 slash commands
-├── agents/                             # 5 specialist agents
+│       ├── deployment.md              # Preview server, Firebase Hosting
+│       ├── social-media-designer.md    # Platform specs, safe zones, visual systems
+│       ├── social-media-strategist.md  # Campaign planning, content calendar, KPIs
+│       ├── social-media-copywriter.md  # Captions, hooks, hashtag strategy
+│       ├── growth-analytics-specialist.md # Metrics, dashboards, A/B testing
+│       ├── email-designer.md           # HTML email, responsive, dark mode, ESPs
+│       ├── email-copywriter.md         # Subject lines, sequences, deliverability
+│       ├── data-viz-designer.md        # Chart type selection, colorblind-safe palettes
+│       ├── dashboard-architect.md      # KPI layouts, filter systems, data tables
+│       ├── framework-specialist.md     # React/Vue/Svelte/Next.js/Astro patterns
+│       ├── template-gallery.md         # 10 production web templates
+│       ├── presentation-designer.md    # Slide systems, pitch decks, data storytelling
+│       ├── brand-strategist.md         # Positioning, visual identity, brand architecture
+│       ├── illustration-director.md    # Icon systems, SVG standards, style taxonomy
+│       ├── video-content-producer.md   # Scripts, storyboards, short-form pacing
+│       ├── conversational-designer.md  # Chatbot UI, VUI, dialog flows, persona systems
+│       ├── spatial-designer.md         # visionOS HIG, WebXR, depth layers, gaze/gesture
+│       └── compliance-designer.md      # GDPR/CCPA consent UX, HIPAA, PCI, ADA compliance
+├── commands/                           # 60 slash commands
+├── agents/                             # 7 specialist agents
 ├── hooks/hooks.json                    # SessionStart + PreToolUse + Stop hooks
 ├── scripts/
 │   ├── detect-design-context.sh        # Project stack detection
 │   └── run-evals.sh                    # Eval structure validator
 ├── evals/
-│   ├── evals.json                      # 17 eval cases (prompt + assertion specs)
-│   └── fixtures/test-page.html         # Fixture: landing page with a11y issues
+│   ├── evals.json                      # 161 eval cases (prompt + assertion specs)
+│   └── fixtures/                       # 60 output fixtures for behavioral smoke tests
 ├── assets/                             # Social preview + demo images
 ├── CHANGELOG.md                       # Version history
 └── CONTRIBUTING.md                    # Contributor guide
 ```
 
 <details>
-<summary><b>Design knowledge breakdown (8,500+ raw lines)</b></summary>
+<summary><b>Design knowledge breakdown (13,800+ raw lines)</b></summary>
 
 | File | Lines | Covers |
 |------|-------|--------|
@@ -800,13 +929,26 @@ All defaults adapt when the plugin detects your project uses a different stack.
 
 ---
 
+### Quality check
+
+Run all quality gates locally:
+
+```bash
+bash scripts/quality-check.sh
+```
+
+Checks: metadata consistency (`meta/stats.json` vs filesystem vs README badges), behavioral smoke evals (pre-captured command output fixtures), legacy branding guard.
+
+---
+
 ## 📦 Installation
 
 ```bash
-git clone https://github.com/Adityaraj0421/design-studio.git ~/.claude/plugins/design-studio
+git clone https://github.com/Adityaraj0421/naksha-studio.git
+cd design-studio && bash install.sh
 ```
 
-Restart Claude Code to load the plugin.
+Restart Claude Code to load the plugin. To update: `git pull` (no reinstall needed).
 
 ---
 
@@ -821,6 +963,6 @@ Restart Claude Code to load the plugin.
 
 **Built with Claude Code**
 
-[Report Issues](https://github.com/Adityaraj0421/design-studio/issues) · [Changelog](CHANGELOG.md) · [MIT License](LICENSE)
+[Report Issues](https://github.com/Adityaraj0421/naksha-studio/issues) · [Changelog](CHANGELOG.md) · [MIT License](LICENSE)
 
 </div>

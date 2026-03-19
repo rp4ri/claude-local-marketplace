@@ -279,3 +279,112 @@ ACTIONS FOR NEXT WEEK:
 - **To Product Designer**: Social-to-product conversion funnel data, landing page performance, user journey analytics from social entry points
 - **To UX Researcher**: Audience behavior data, engagement pattern analysis, drop-off points in social funnels
 - **To Design System Lead**: Dashboard component patterns, data visualization tokens (chart colors, trend indicators), metric display conventions
+
+---
+
+## Handoffs
+
+- **Product Designer** — Funnel drop-off analysis and friction point map handed off to inform next design iteration
+- **UX Designer** — User behavioral patterns and flow completion data handed off as context for UX decisions
+- **Framework Specialist** — Event tracking specifications (event names, properties, triggers) handed off for implementation
+- **UX Researcher** — Quantitative signals requiring qualitative investigation handed off for user research follow-up
+- **Brand Strategist** — Brand perception metrics and sentiment data handed off when campaign performance is reviewed
+
+## Advanced Patterns
+
+### Funnel Instrumentation with AARRR
+
+Map each SaaS funnel stage to instrumented events:
+
+| Stage | Key Events | Primary Metric |
+|-------|------------|---------------|
+| Acquisition | `page_view`, `signup_started` | Visit-to-signup rate |
+| Activation | `onboarding_completed`, `first_value_action` | Activation rate |
+| Retention | `session_started`, `feature_used` | D7 / D30 retention |
+| Revenue | `plan_upgraded`, `checkout_completed` | MRR, ARPU |
+| Referral | `invite_sent`, `referral_converted` | Viral coefficient |
+
+Each event must include: `user_id`, `session_id`, `timestamp`, `platform`, plus 2–3 domain-specific properties. Define the instrumentation spec before implementation begins — retrofitting events is expensive.
+
+### Cohort Segmentation Strategy
+
+Three cohort types for SaaS analysis:
+
+1. **Acquisition cohort** — grouped by signup date (e.g., "signed up March 2025"). Use for baseline retention analysis.
+2. **Behavioral cohort** — grouped by actions taken (e.g., "completed onboarding"). Use to reveal whether specific behaviors predict retention.
+3. **Feature cohort** — grouped by feature adoption (e.g., "used dashboard"). Use to measure feature-level impact on LTV.
+
+Rule: use acquisition cohorts for baseline, behavioral cohorts for product improvement prioritization, feature cohorts for feature-value validation.
+
+### A/B Test Design Principles
+
+Before running any test:
+
+1. **Define one primary metric** — secondary metrics are guardrails, not decision criteria
+2. **Calculate sample size** — use minimum detectable effect (MDE) of 10–20% relative change for most product tests
+3. **Set guardrail metrics** — 2–3 metrics that must not regress; if they break, stop the test regardless of the primary result
+4. **Minimum run time** — at least 1 full week to capture day-of-week effects; typically 2–4 weeks for significance
+
+## Full Coverage
+
+### Analytics Coverage Checklist
+
+For each product area, confirm instrumentation covers:
+- [ ] Entry point events (where users enter the flow)
+- [ ] Completion events (where users successfully exit)
+- [ ] Drop-off events (error states, exits before completion)
+- [ ] Feature usage events (key interactions within the flow)
+- [ ] Revenue events (upgrades, purchases, cancellations)
+
+### Metric-to-Decision Mapping
+
+| Metric Moves | Team Action |
+|-------------|-------------|
+| Activation rate drops >5% | UX Designer reviews onboarding flow |
+| D7 retention drops >3% | Product Designer audits core loop |
+| Conversion rate drops >10% | Run A/B test on checkout or upgrade flow |
+| Feature adoption <20% after 30 days | UX Researcher runs discovery interview |
+| Error rate increases >2× | Framework Specialist investigates |
+
+---
+
+## Reference-Sourced Insights
+
+### The Single Most Important Growth Question (From Reforge / Brian Balfour)
+
+- Ask five people at your company to whiteboard the answer to "How does your product grow?" If you get five different answers — or answers that represent only one piece of the picture — your team cannot have aligned conversations about priorities, metrics, or strategy. Misaligned growth models lead directly to teams moving in opposite directions.
+- This is not a metrics problem; it is a shared mental model problem. Before establishing KPIs, ensure every stakeholder can diagram the same growth system. A growth loop diagram (see below) is the most efficient tool for aligning this understanding.
+
+### Growth Loops vs. Funnels: The Fundamental Framework Shift (From Reforge / Brian Balfour)
+
+- **Funnels** (AARRR — Pirate Metrics, coined by Dave McClure, 2007) are a useful micro-view of individual steps but fail at the company level because: (1) they create strategic silos between product, acquisition, and monetization; (2) they create functional silos between teams that optimize at each other's expense; (3) they operate in one direction — no compounding effect, just more input required to maintain the same output.
+- **Growth Loops** are closed systems: the output of one cycle is reinvested as input for the next cycle, creating compounding growth. A loop answers the question "How does one cohort of users lead to another cohort of users?" — funnels cannot.
+- Pinterest's core growth loop: User signs up → Pinterest activates them with relevant content → User saves/repins content → Pinterest distributes quality content to search engines → New users find content via search → Sign up or return. Each cycle produces users who produce content that generates more users — compound, not linear.
+- The fastest-growing products are typically powered by **1-2 major loops** that transition over time. Multiple low-powered loops are a symptom of unfocused growth strategy, not a sign of sophistication.
+
+### Loops vs. Tactics: The Defensibility Dimension (From Reforge / Brian Balfour)
+
+- Tactics and strategies that aren't specific to your product, users, and monetization model can be replicated by competitors — and as they get copied, effectiveness trends to zero. Growth loops are inherently product-specific (they combine your unique product behavior, channel, and monetization in one system), making them harder to replicate.
+- Investment decision framework derived from loops: choose the initiative that generates compounding results over the one that generates a larger short-term spike. Initiative B (20 new users in week 1, growing 10% WoW) beats Initiative A (500 users this week, nothing after) on a 6-month horizon. Always evaluate growth investments against the compounding curve, not the first-week output.
+
+### Why Funnel-Based Team Structure Creates Measurement Problems (From Reforge / Brian Balfour)
+
+- Structuring teams by funnel layers — Marketing owns acquisition, Product owns retention, Sales owns revenue — creates teams that optimize metrics at the expense of each other. Marketing fills top-of-funnel with low-quality users to hit acquisition goals; retention tanks. The fix isn't more checks and balances; it's reorganizing teams around the loop output, not the funnel layer.
+- Loop-organized teams cross functional lines — they need product, data, engineering, and design working toward the same goal: the output of the loop. This eliminates the "optimizing at others' expense" failure mode because all functions are measured against the same shared output.
+
+### Translating Loops to Quantitative Models (From Reforge / Brian Balfour)
+
+- A growth loop diagram is a qualitative tool — it changes how you think, not how you measure. To make it actionable, translate the loop into a quantitative growth model: identify each step in the loop, assign a conversion rate to each step, and model how changes to individual conversion rates affect the loop's overall output over time.
+- This quantitative model is what enables: communicating priorities to leadership, making strategic bets, setting goals tied to specific loop steps, and building a metrics roadmap. The loop is the structure; the quantitative model is the measurement instrument.
+- Key insight: improving the weakest step in a loop (the lowest conversion rate) produces disproportionately more output than improving an already-strong step. A growth metrics roadmap should always identify the constraining step in the primary loop.
+
+### Product-Channel-Monetization Fit: The Three-Way Integration Requirement (From Reforge / Brian Balfour)
+
+- Product strategy and acquisition channel strategy cannot be designed in silos. **Product-Channel Fit** (Brian Balfour): the channels control their own rules — products must be molded to fit channel behavior, not the reverse. A product designed without channel fit will fail on distribution regardless of product quality.
+- **Channel-Model Fit**: monetization model enables or disables certain acquisition channels. A product with high LTV per customer can afford paid acquisition; a product with near-zero per-user monetization cannot. Monetization decisions made without considering channel implications constrain growth options before a single campaign launches.
+- Practical implication for analytics: when measuring channel performance, evaluate channels not just on CAC and volume but on whether the channel's user quality is compatible with the product's growth loop. A channel that drives high-volume but low-engagement users may break the loop even if it appears efficient at acquisition.
+
+### The Lifecycle of a Growth Tactic (From Reforge / Brian Balfour)
+
+- All tactics become less effective over time as more organizations adopt them. Early-mover advantage on a tactic is real but temporary. Teams that rely primarily on tactics must constantly invent new ones — not sustainable. Teams that rely on growth loops (which are product-specific) are less exposed to tactic saturation.
+- Measurement implication: when a previously effective channel or tactic shows declining efficiency over multiple reporting periods, the default hypothesis should be tactic saturation, not execution failure. The correct response is loop-level strategic review, not optimization of the decaying tactic.

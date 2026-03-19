@@ -14,6 +14,20 @@ Input: **$ARGUMENTS**
 
 Based on the user's input, run one of these workflows:
 
+## Context7 Documentation Lookup
+
+Before running the selected mode, use Context7 to fetch current documentation for the target token format. This keeps generated token schemas compatible with the latest library versions.
+
+**When to look up what** (call `mcp__plugin_context7_context7__resolve-library-id` then `mcp__plugin_context7_context7__query-docs`):
+- Generating **Tailwind** tokens (Mode A or C) → resolve `"tailwindcss"` → query `"theme extend colors typography configuration"`
+- Generating **Style Dictionary** output → resolve `"style-dictionary"` → query `"token format transforms platforms"`
+- Generating **CSS custom properties** → no lookup needed (CSS spec is stable)
+- Mode B (Figma extraction) → no lookup needed
+
+If `.design-studio/project.json` has a `tokenFormat` field, look up only that format's library. Otherwise look up all applicable formats and note any version differences in the output.
+
+**Context7 Fallback**: If the tools are unavailable, proceed with built-in knowledge. The token generation will still produce correct output.
+
 ### Mode A: Generate Tokens from Scratch
 Trigger: User provides a brand color, brand name, or says "create a design system"
 
@@ -71,9 +85,31 @@ Trigger: User asks for components, component library, or variants
 
 ## Output
 
-Always output tokens as CSS custom properties. Include a usage example showing how to apply them.
+Detect the project's styling approach before choosing output format:
+
+1. **Tailwind CSS v4** (check for `@theme` in `app.css` or `tailwind.config.*`): Output tokens as `@theme` block in the project's CSS entry point. Tailwind v4 uses `@theme` instead of `tailwind.config.js` — define colors, fonts, spacing directly:
+   ```css
+   @theme {
+     --color-primary-500: #6366F1;
+     --color-primary-600: #4F46E5;
+     --font-sans: 'Inter', sans-serif;
+   }
+   ```
+2. **Tailwind CSS v3** (check for `tailwind.config.js`/`.ts`): Output as `theme.extend` in the config file.
+3. **CSS custom properties** (no Tailwind): Output as `:root` variables in a `tokens.css` file.
+4. **Style Dictionary** (if requested): Output as JSON token format.
+
+Include a usage example showing how to apply the tokens in the project's actual framework.
 
 **MCP Fallback**: If Figma MCP tools are unavailable for Mode B, ask the user to export their Figma variables as JSON or provide screenshots of their design tokens. If Preview MCP is unavailable, write files directly and instruct the user to open them locally.
+
+## Memory Write
+
+If `.design-studio/memory.md` exists: append:
+```
+[{ISO timestamp}] /design-system: {token format used}, design system path: {output file path if written}
+```
+If `.design-studio/project.json` exists: update `tokenFormat`, `designSystemPath`, and `updatedAt` fields.
 
 ## What's Next
 

@@ -264,6 +264,14 @@ Output files based on user's stack:
 - `brand-kit.html` — Visual reference page
 - Figma styles (if connected)
 
+### Memory Write
+
+If `.design-studio/memory.md` exists: append a one-line entry summarizing the brand kit generated:
+```
+[{ISO timestamp}] /brand-kit: Primary {primary}, secondary {secondary}, font {font}, mood {mood}
+```
+If `.design-studio/project.json` exists: update `brand.primary`, `brand.secondary`, `brand.font`, and `updatedAt` fields.
+
 ## Color Generation Algorithm
 
 ### HSL-Based Shade Generation

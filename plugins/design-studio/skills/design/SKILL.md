@@ -5,7 +5,10 @@ description: >
   A Design Manager staffs the right specialists (Product Designer, UX Designer, UI Designer, UX Researcher,
   Content Designer, Design System Lead, Motion Designer, Creative Director, Social Media Designer,
   Social Media Strategist, Social Media Copywriter, Growth/Analytics Specialist, Email Designer,
-  Email Copywriter, Data Viz Designer, Dashboard Architect) based on the task scope.
+  Email Copywriter, Data Viz Designer, Dashboard Architect, Presentation Designer, Brand Strategist,
+  Illustration Director, Video/Content Producer, AI Image Director, AI Video Director,
+  AI Audio & Voice Producer, AI Prompt Engineer,
+  Print Designer) based on the task scope.
   Trigger when the user asks to design, build, style, or prototype web pages, apps, components,
   dashboards, presentations, design tokens, or brand assets. Also trigger for Figma-to-code workflows,
   design system creation, responsive layouts, dark mode theming, accessibility audits, UX flows,
@@ -13,7 +16,30 @@ description: >
   TikTok, LinkedIn, Twitter, YouTube, carousels, stories, reels, content calendars, hashtags, captions,
   social analytics, email templates, email campaigns, newsletters, email sequences, welcome emails,
   drip campaigns, email copywriting, HTML email, deliverability, charts, graphs, data visualization,
-  bar charts, line charts, scatter plots, KPI dashboards, analytics dashboards, or data tables.
+  bar charts, line charts, scatter plots, KPI dashboards, analytics dashboards, data tables,
+  presentations, pitch decks, slide decks, keynote, powerpoint, google slides, investor deck,
+  brand positioning, brand strategy, brand identity, brand audit, brand architecture, brand voice,
+  illustrations, icon systems, icons, SVG assets, spot illustrations, style guide, video scripts,
+  storyboards, video content, product demo video, explainer video, short-form video, reels script,
+  youtube script, tiktok script, motion design, micro-interactions, page transitions, animation,
+  CSS animations, Lottie,
+  generate image, ai image, midjourney, dall-e, dall·e, ideogram, firefly, stable diffusion,
+  gen video, ai video, runway, kling, sora, pika, luma dream machine,
+  voiceover, voice gen, ai audio, elevenlabs, suno, murf,
+  ai prompt, prompt refine, moodboard, gen-moodboard, prompt-refine,
+  ai-generated image, ai-generated video, image generation, video generation,
+  print layout, business card, pdf report, print design, print audit,
+  preflight check, bleed, certificate design, brochure layout, print artifact,
+  annual report print, invoice design, print flyer,
+  chatbot, conversational UI, voice interface, chat widget, virtual assistant, dialog flow,
+  visionOS, Vision Pro, spatial UI, depth hierarchy, WebXR, mixed reality, augmented reality,
+  immersive, AR design, AR overlay, world tracking, spatial computing,
+  GDPR, CCPA, compliance design, cookie consent, consent banner, HIPAA, PCI DSS,
+  data deletion, data portability, accessibility compliance, ADA compliance,
+  studio-init, studio-status, project memory, pipeline, run pipeline,
+  competitor analysis, compare designs, competitive audit, design compare,
+  extract tokens, token extraction, find my design tokens, map tokens, token audit, token coverage,
+  UX critique, 3-pass review, multi-pass audit, thorough design review, design second opinion.
   Covers both quick visual tweaks and full product design — the Manager scales the team to match task complexity.
 
   <example>
@@ -70,6 +96,176 @@ description: >
   user: "Build a complete component library in Figma for our design system"
   assistant: Routes to /figma-component-library with Figma Creator + Design System Lead + UI Designer
   </example>
+
+  <example>
+  user: "Design a pitch deck for our seed round"
+  assistant: Activates Presentation Designer, routes to /presentation-design with investor deck structure
+  </example>
+
+  <example>
+  user: "Define our brand positioning and visual identity"
+  assistant: Activates Brand Strategist, routes to /brand-strategy with positioning framework
+  </example>
+
+  <example>
+  user: "Create an icon system for our product"
+  assistant: Activates Illustration Director, routes to /illustration-system with icon grid and style rules
+  </example>
+
+  <example>
+  user: "Write a 60-second product demo video script"
+  assistant: Activates Video/Content Producer, routes to /video-script with hook-problem-solution-CTA structure
+  </example>
+
+  <example>
+  user: "Add micro-interactions and page transitions to our app"
+  assistant: Activates Motion Designer, routes to /motion-design with duration/easing system
+  </example>
+
+  <example>
+  user: "Generate an on-brand image for our product launch campaign"
+  assistant: Routes to /gen-image with AI Image Director + AI Prompt Engineer
+  </example>
+
+  <example>
+  user: "Create a moodboard for our new campaign direction"
+  assistant: Routes to /gen-moodboard with AI Image Director + Brand Strategist
+  </example>
+
+  <example>
+  user: "Generate a 15-second product video for Instagram Reels"
+  assistant: Routes to /gen-video with AI Video Director + AI Prompt Engineer
+  </example>
+
+  <example>
+  user: "Write a voiceover for our product demo video"
+  assistant: Routes to /gen-audio with AI Audio & Voice Producer
+  </example>
+
+  <example>
+  user: "This Midjourney prompt isn't working, can you fix it?"
+  assistant: Routes to /prompt-refine with AI Prompt Engineer
+  </example>
+
+  <example>
+  user: "Design a business card for our product"
+  assistant: Routes to /print-layout with Print Designer — sets up bleed, safe zone, CMYK colors
+  </example>
+
+  <example>
+  user: "Generate a 12-page annual report PDF for our SaaS product"
+  assistant: Routes to /pdf-report with Print Designer — page geometry, master template, typography system
+  </example>
+
+  <example>
+  user: "Lint my Figma file for design issues"
+  assistant: Routes to /lint-design — design-lint agent scans for orphan colors, spacing violations, missing auto-layout, detached styles
+  </example>
+
+  <example>
+  user: "Critique these screens before I present them"
+  assistant: Routes to /design-critique — design-critique agent runs Nielsen's 10 heuristics + visual audit against the current Figma file
+  </example>
+
+  <example>
+  user: "Score my design"
+  assistant: Routes to /design-score — quantitative 0–100 quality score across Accessibility, Usability, Visual Quality, and Token Compliance
+  </example>
+
+  <example>
+  user: "Give me a design score for this page"
+  assistant: Routes to /design-score — quantitative 0–100 quality score across Accessibility, Usability, Visual Quality, and Token Compliance
+  </example>
+
+  <example>
+  user: "Rate this design"
+  assistant: Routes to /design-score — quantitative 0–100 quality score across Accessibility, Usability, Visual Quality, and Token Compliance
+  </example>
+
+  <example>
+  user: "How good is this design?"
+  assistant: Routes to /design-score — quantitative 0–100 quality score across Accessibility, Usability, Visual Quality, and Token Compliance
+  </example>
+
+  <example>
+  user: "Give me a score"
+  assistant: Routes to /design-score — quantitative 0–100 quality score across Accessibility, Usability, Visual Quality, and Token Compliance
+  </example>
+
+  <example>
+  user: "What's the design quality score?"
+  assistant: Routes to /design-score — quantitative 0–100 quality score across Accessibility, Usability, Visual Quality, and Token Compliance
+  </example>
+
+  <example>
+  user: "Quantify this design"
+  assistant: Routes to /design-score — quantitative 0–100 quality score across Accessibility, Usability, Visual Quality, and Token Compliance
+  </example>
+
+  <example>
+  user: "Run QA on this page before we ship"
+  assistant: Routes to /design-qa <file> — design-qa agent checks responsive breakpoints, token compliance, interactive states, motion quality
+  </example>
+
+  <example>
+  user: "Is this form accessible?"
+  assistant: Routes to /accessibility-audit <file> — accessibility-auditor agent runs a full WCAG AA audit (contrast, keyboard nav, semantic HTML, ARIA)
+  </example>
+
+  <example>
+  user: "Set up my project with brand colors and framework"
+  assistant: Routes to /studio-init — interactive wizard writes .design-studio/project.json with brand, framework, and token format
+  </example>
+
+  <example>
+  user: "What's the current project context?"
+  assistant: Routes to /studio-status — displays .design-studio/ project memory, brand tokens, and recent decisions
+  </example>
+
+  <example>
+  user: "Run the launch-prep pipeline"
+  assistant: Routes to /pipeline run launch-prep — executes design → accessibility-audit → design-review → design-handoff in sequence
+  </example>
+
+  <example>
+  user: "Compare our landing page to Stripe's"
+  assistant: Routes to /design-compare — captures both URLs via Playwright, side-by-side layout and UX analysis
+  </example>
+
+  <example>
+  user: "Analyze Figma's website for design patterns I can steal"
+  assistant: Routes to /competitive-audit — captures site, extracts color palette, type system, UX patterns with rated recommendations
+  </example>
+
+  <example>
+  user: "Design a customer support chatbot UI"
+  assistant: Routes to /design-chatbot — Conversational Designer generates dialog flow, bubble UI spec, quick replies, error states
+  </example>
+
+  <example>
+  user: "Design a voice interface for our smart home app"
+  assistant: Routes to /design-voice-ui — Conversational Designer generates wake word flow, confirmation patterns, audio feedback spec
+  </example>
+
+  <example>
+  user: "Design a visionOS productivity app"
+  assistant: Routes to /design-spatial — Spatial Designer generates window type selection, depth hierarchy, ornament spec, spatial typography
+  </example>
+
+  <example>
+  user: "Design an AR overlay for assembly instructions"
+  assistant: Routes to /design-ar-overlay — Spatial Designer generates anchor strategy, tracking states, instruction cards, occlusion handling
+  </example>
+
+  <example>
+  user: "Design our cookie consent flow for EU users"
+  assistant: Routes to /design-gdpr — Compliance Designer generates IAB TCF cookie banners, privacy control center, data deletion flow
+  </example>
+
+  <example>
+  user: "Audit our payment form for PCI compliance"
+  assistant: Routes to /design-compliance --regulation pci — Compliance Designer audits card field isolation, CVV handling, error message standards
+  </example>
 ---
 
 # Design Team Skill
@@ -104,11 +300,39 @@ This skill is part of the **design-studio** plugin. For focused workflows, use t
 | `/design-framework <fw> [file]` | Convert HTML design output to React, Vue, Svelte, Next.js, or Astro components |
 | `/email-template <type> for <brand>` | Generate a production-ready HTML email template (inline styles, table layout, responsive) |
 | `/email-campaign <type> for <product>` | Plan and build a complete multi-email campaign sequence |
+| `/email-audit <email or HTML>` | Full-spectrum audit — technical rendering issues (Phase 1) and copy/strategy critique (Phase 2) |
 | `/design-template <category>` | Production-ready web template from gallery: landing-page, dashboard, pricing, auth, blog, ecommerce, portfolio, docs, saas, onboarding |
 | `/chart-design <description>` | Design a chart or data visualization — selects chart type, applies accessible color palettes, outputs HTML/CSS/JS |
 | `/dashboard-layout <description>` | Build a complete dashboard layout — KPI cards, charts, filter bar, data table, sidebar, responsive |
+| `/data-viz-audit <chart or description>` | Audit a chart for type selection, accessible palette, annotations, and anti-patterns. Conditional Phase 2 audits dashboard layout fit |
 | `/design-tutorial [track]` | Interactive guided tour — quick-start, ui, figma, social, email, data-viz, or full (30 min complete tour) |
 | `/figma-component-library <description>` | Generate a complete Figma component library — atoms, molecules, organisms with variants, auto layout, component properties |
+| `/pdf-report <subject> for <brand>` | Generate a multi-page print-ready report layout with named pages, running headers/footers, typography system, and CSS `@page` output |
+| `/print-layout <artifact> for <brand>` | Design a single print artifact (business card, certificate, brochure, invoice) with bleed, safe zone, CMYK color documentation, and print-ready HTML/CSS |
+| `/print-audit <layout or description>` | Audit a print layout for bleed, safe zone, CMYK color mode, font embedding, and page break rules. Conditional Phase 2 reviews brand consistency |
+| `/lint-design [nodeId]` | Scan a Figma file for design quality issues — orphan colors, spacing violations, non-standard type sizes, missing auto-layout, detached styles |
+| `/design-critique [nodeId]` | UX heuristic review of Figma screens against Nielsen's 10 heuristics + visual design audit |
+| `/design-score` | Quantitative 0–100 design quality score across Accessibility, Usability, Visual Quality, and Token Compliance | [url | file | --screenshot <path>] |
+| `/design-qa <file>` | Visual QA on an HTML/CSS implementation — responsive breakpoints, token compliance, interactive states, motion quality |
+| `/accessibility-audit <file>` | Full WCAG AA audit — contrast ratios, keyboard navigation, semantic HTML, ARIA, touch targets |
+| **Memory & Pipelines** | |
+| `/studio-init` | Set up project memory — stores brand colors, font, framework, token format in `.design-studio/project.json` |
+| `/studio-status` | Display current project context and last 10 design decisions from `.design-studio/memory.md` |
+| `/studio-doctor` | Run all design-studio quality checks and report the plugin's health status — structural validation, metadata consistency, behavioral smoke, legacy branding guard |
+| `/studio-help` | Quick-reference for all commands — browse by category or look up a specific command |
+| `/pipeline <action>` | Run a multi-step design pipeline: `run <name>`, `list` available pipelines, `show <name>` to preview steps |
+| **Vision & Intelligence** | |
+| `/design-compare <url1> <url2>` | Capture two live sites via Playwright, side-by-side design analysis: layout, type, color, UX patterns |
+| `/competitive-audit <url>` | Capture a competitor site, extract design system patterns, output rated "Steal This" recommendations |
+| **Conversational UI Wing** | |
+| `/design-chatbot [type] [platform] [brief]` | Design chatbot/assistant UI: dialog flows, bubble spec, quick replies, error states, accessibility |
+| `/design-voice-ui [type] [platform] [screen]` | Design voice interface: wake word flows, confirmation patterns, earcon spec, hybrid screen layout |
+| **Spatial & AR Wing** | |
+| `/design-spatial [app-type] [platform] [brief]` | Design spatial computing UI for visionOS/WebXR: window selection, depth hierarchy, ornaments, typography |
+| `/design-ar-overlay [use-case] [platform]` | Design AR overlay: anchor strategy, world tracking states, instruction cards, confirmation overlays |
+| **Compliance Wing** | |
+| `/design-gdpr [product] [jurisdiction] [categories]` | Design GDPR/CCPA consent flows: cookie banners, privacy control center, data deletion request UI |
+| `/design-compliance --regulation <hipaa\|pci\|ada>` | Audit or generate regulation-specific UI: HIPAA PHI fields, PCI payment forms, ADA accessibility specs |
 
 ---
 
@@ -174,6 +398,16 @@ This skill is part of the **design-studio** plugin. For focused workflows, use t
 | **Figma Creator** | Build pages, frames, components, styles in Figma via Desktop Bridge | When the task requires creating designs inside Figma | `agents/figma-creator.md` |
 | **Design Critique** | UX heuristic review — Nielsen's 10, visual audit, interaction states | When user wants design feedback, or before presenting designs | `agents/design-critique.md` |
 | **Design Lint** | Scan Figma files for orphan colors, non-standard spacing, low contrast | When auditing Figma file quality, or before handoff | `agents/design-lint.md` |
+| design-token-extractor | Reads CSS/SCSS/Tailwind configs, extracts and categorizes tokens, outputs in CSS vars/Tailwind/Style Dictionary formats |
+| design-critic | 3-pass UX critique: Nielsen heuristics (severity-rated) + accessibility spot-check + content quality audit |
+
+### Frontier Wing Specialists
+
+| Role | Expertise | When to activate | Reference |
+|------|-----------|-----------------|-----------|
+| **Conversational Designer** | Chatbot UI, dialog flow design, VUI principles, persona systems, multi-modal design | Chatbot/assistant UI, voice interfaces, dialog flows, chat widgets, virtual assistants | `references/conversational-designer.md` |
+| **Spatial Designer** | visionOS/Vision Pro HIG, WebXR, depth layers, gaze/gesture input, spatial typography, AR anchoring | Vision Pro apps, visionOS UI, WebXR experiences, AR overlays, spatial computing, immersive UI | `references/spatial-designer.md` |
+| **Compliance Designer** | GDPR/CCPA consent UX, HIPAA healthcare UI, PCI payment forms, ADA/Section 508 accessibility compliance | Consent flows, cookie banners, PHI fields, payment form compliance, accessibility audits, regulated industries | `references/compliance-designer.md` |
 
 ---
 
@@ -263,12 +497,25 @@ Based on the task, activate only the roles needed. Read their reference files fo
 | "Create a dashboard template" | UI Designer, Design System Lead + `/design-template dashboard` |
 | "Generate a SaaS pricing page" | UI Designer, Content Designer + `/design-template pricing` |
 | "Build a portfolio site" | UI Designer, Content Designer + `/design-template portfolio` |
+| "Browse available templates" | UI Designer + `/design-template` (gallery mode — shows all 10 categories) |
+| "What templates are available?" | UI Designer + `/design-template` (gallery mode — shows all 10 categories) |
+| "Show me template options" | UI Designer + `/design-template` (gallery mode — shows all 10 categories) |
+| "Template list" | UI Designer + `/design-template` (gallery mode — shows all 10 categories) |
+| "Available templates" | UI Designer + `/design-template` (gallery mode — shows all 10 categories) |
 | "Design a bar chart for monthly revenue" | Data Viz Designer + `/chart-design` |
 | "Build a scatter plot for ad spend vs conversion" | Data Viz Designer + `/chart-design` |
 | "Create an analytics dashboard for a SaaS" | Dashboard Architect, Data Viz Designer, UI Designer + `/dashboard-layout` |
 | "Build a KPI dashboard for e-commerce" | Dashboard Architect, Data Viz Designer, UI Designer + `/dashboard-layout` |
 | "Design a monitoring dashboard for API metrics" | Dashboard Architect, Data Viz Designer + `/dashboard-layout --style dark-tech` |
 | "Make a heatmap showing user engagement" | Data Viz Designer + `/chart-design` |
+| "Design a customer support chatbot" | Conversational Designer, UI Designer, Content Designer |
+| "Design a visionOS productivity app" | Spatial Designer, UI Designer, Motion Designer |
+| "Design an AR instruction overlay" | Spatial Designer, UI Designer |
+| "Design a GDPR consent flow" | Compliance Designer, UI Designer, Content Designer |
+| "Audit payment form for PCI" | Compliance Designer + `/design-compliance --regulation pci` |
+| "Set up project memory" | routes to `/studio-init` directly |
+| "Run the launch-prep pipeline" | routes to `/pipeline run launch-prep` directly |
+| "Analyze a competitor site" | routes to `/competitive-audit` directly |
 
 **Rules:**
 - Simple visual tasks (icon, color tweak) → 1–2 roles, no overhead
@@ -283,14 +530,22 @@ Based on the task, activate only the roles needed. Read their reference files fo
 - The **Social Media Designer** joins any visual social content task
 - The **Social Media Strategist** joins campaign planning and content calendar tasks
 - The **Growth/Analytics Specialist** joins when measurement, dashboards, or A/B testing is needed for social
-- **Email** roles activate when the task mentions: "email", "newsletter", "email template", "HTML email", "welcome email", "drip campaign", "email sequence", "onboarding email", "subject line", "preheader", "CAN-SPAM", "Mailchimp", "SendGrid", "Klaviyo", "ESP", "transactional email", or "email campaign"
+- **Email** roles activate when the task mentions: "email", "newsletter", "email template", "HTML email", "welcome email", "drip campaign", "email sequence", "onboarding email", "subject line", "preheader", "CAN-SPAM", "Mailchimp", "SendGrid", "Klaviyo", "ESP", "transactional email", "email campaign", "email audit", "audit email", "audit my email", "review my email", "email review", "check my email template", or "email html issues"
 - The **Email Designer** joins any HTML email template or visual email design task
 - The **Email Copywriter** joins when email copy, subject lines, or email sequences are needed
-- **Data Visualization** roles activate when the task mentions: "chart", "graph", "data viz", "visualization", "bar chart", "line chart", "scatter plot", "pie chart", "donut chart", "histogram", "heatmap", "sparkline", "KPI", "dashboard", "analytics dashboard", "admin panel", "data table", "metrics", "monitoring", or "reporting dashboard"
+- **Data Visualization** roles activate when the task mentions: "chart", "graph", "data viz", "visualization", "bar chart", "line chart", "scatter plot", "pie chart", "donut chart", "histogram", "heatmap", "sparkline", "KPI", "dashboard", "analytics dashboard", "admin panel", "data table", "metrics", "monitoring", "reporting dashboard", "audit chart", "chart audit", "chart review", "review chart", "data viz audit", "viz audit", or "dashboard audit"
 - The **Data Viz Designer** joins any chart or visualization task
 - The **Dashboard Architect** joins when the output is a full dashboard layout (vs. a single chart)
 - **Tutorial** activates when the user says: "tutorial", "getting started", "how do I use", "what can you do", "new user", "first time", "show me", "help me get started" → route directly to `/design-tutorial`
+- **Help / Command Reference** activates when the user says: "what commands are there", "list all commands", "command reference", "what can design-studio do", "show me all commands", "design-studio help", "help me find a command" → route directly to `/studio-help`
 - **Component Library** activates when the user says: "component library", "figma library", "atoms molecules organisms", "build all components", "generate component library", "create a design system in Figma" → route to `/figma-component-library`
+- **Memory** commands activate when the user says: "studio-init", "set up project memory", "project context", "studio-status", "what's the current project context", "show project memory", "save brand settings", "project setup wizard" → route to `/studio-init` or `/studio-status` as appropriate
+- **Doctor / Health Check** activates when the user says: "doctor", "health check", "plugin broken", "validate plugin", "check design-studio", "diagnose design-studio", "something wrong with design-studio" → route directly to `/studio-doctor`
+- **Pipeline** activates when the user says: "run pipeline", "design pipeline", "launch prep", "brand audit pipeline", "component build pipeline", "pipeline list", "available pipelines", "run the", "chain commands" → route to `/pipeline run <name>` or `/pipeline list`
+- **Vision/Competitive** activates when the user says: "compare designs", "compare these two sites", "competitor analysis", "analyze this competitor", "competitive audit", "steal this design", "what can I steal from", "benchmark against", "design compare" → route to `/design-compare` or `/competitive-audit`
+- **Conversational Designer** activates when the task mentions: "chatbot", "conversational UI", "voice interface", "chat widget", "virtual assistant", "dialog flow", "VUI", "IVR design", "voice UI", "chatbot bubbles", "message bubbles", "typing indicator", "quick replies", "voice assistant", "speech interface", "barge-in"
+- **Spatial Designer** activates when the task mentions: "visionOS", "Vision Pro", "spatial UI", "depth hierarchy", "WebXR", "mixed reality", "augmented reality", "immersive", "AR design", "AR overlay", "world tracking", "spatial computing", "gaze input", "pinch gesture", "ornament", "visionOS app"
+- **Compliance Designer** activates when the task mentions: "GDPR", "CCPA", "compliance design", "cookie consent", "consent banner", "HIPAA", "PCI DSS", "data deletion", "data portability", "accessibility compliance", "ADA compliance", "privacy controls", "PHI fields", "Section 508", "EN 301 549", "consent flow", "cookie banner"
 
 ### Step 4 — Execute the Workflow
 
@@ -435,3 +690,12 @@ Unless the user specifies otherwise:
 | Dashboard layout | Full dashboard with KPI cards, charts, filter bar, tables | `/dashboard-layout` command |
 | Tutorial / onboarding | Interactive guided tour with track selection and real exercises | `/design-tutorial` command |
 | Figma component library | Full atoms/molecules/organisms library with variants and auto layout | `/figma-component-library` command |
+| Project memory context | `.design-studio/project.json` (brand, framework, token format) + `.design-studio/memory.md` (decision log) | `/studio-init`, `/studio-status` commands |
+| Pipeline execution report | Aggregated multi-command summary with per-step status | `/pipeline run` command |
+| Competitive analysis | Design pattern extract with ⭐-rated "Steal This" recommendations | `/competitive-audit`, `/design-compare` commands |
+| Chatbot UI spec | Dialog flow map, bubble spec, component library, error states, accessibility notes | `/design-chatbot` command |
+| Voice UI spec | Interaction flows, confirmation patterns, audio feedback spec, earcon design | `/design-voice-ui` command |
+| Spatial UI spec | Window type selection, depth hierarchy, ornament spec, spatial typography scale | `/design-spatial` command |
+| AR overlay spec | Anchor strategy, tracking states, instruction cards, scan state designs | `/design-ar-overlay` command |
+| GDPR/CCPA consent UI | Cookie banner variants, consent flow, privacy control center, deletion request flow | `/design-gdpr` command |
+| Compliance audit/spec | Regulation-specific UI: HIPAA fields, PCI payment forms, ADA component specs | `/design-compliance` command |
