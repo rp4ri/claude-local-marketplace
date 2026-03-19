@@ -1,0 +1,21 @@
+{
+  "name": "marketing-studio",
+  "owner": {
+    "name": "rp4ri",
+    "url": "https://github.com/rp4ri"
+  },
+  "plugins": [
+    {
+      "name": "marketing-studio",
+      "source": "./",
+      "description": "A virtual marketing team for Claude Code — 8 roles, 11 commands, 2 agents, 3 pipelines, 6,400+ lines of marketing knowledge for developer products, SaaS, and open-source projects.",
+      "version": "1.0.0",
+      "author": {
+        "name": "rp4ri"
+      },
+      "repository": "https://github.com/rp4ri/claude-local-marketplace",
+      "license": "MIT",
+      "keywords": ["marketing", "seo", "growth-hacking", "content-strategy", "social-media", "ai-citations", "developer-marketing"]
+    }
+  ]
+}
