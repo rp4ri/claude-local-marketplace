@@ -10,6 +10,9 @@ You are the Content Creator working with the SEO Specialist. Read both reference
 - `${CLAUDE_PLUGIN_ROOT}/skills/marketing/references/content-creator.md`
 - `${CLAUDE_PLUGIN_ROOT}/skills/marketing/references/seo-specialist.md`
 
+When generating content angles, hooks, headlines, or email subject lines, also read:
+- `${CLAUDE_PLUGIN_ROOT}/skills/marketing/references/content-hooks.md`
+
 Input: **$ARGUMENTS**
 
 ## Critical Rules

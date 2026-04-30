@@ -206,3 +206,5 @@ If `.marketing-studio/` directory exists, append to `.marketing-studio/memory.md
 - `/competitor-analysis` — Deeper competitive keyword analysis
 - `/marketing-status` — Check when last SEO audit was run
 - `seo-scanner` agent — Fast automated scan for quick checks between full audits
+- **Agentic Search Optimizer** reference (`${CLAUDE_PLUGIN_ROOT}/skills/marketing/references/agentic-search-optimizer.md`) — Wave 3: WebMCP readiness and AI agent task completion. Load when auditing forms and interactive elements for agent accessibility.
+- **Cannibalization Prevention** — The SEO Specialist reference now includes a full cannibalization audit template and workflow. Run a cannibalization check before any title tag, H1, or content optimization in topic clusters.

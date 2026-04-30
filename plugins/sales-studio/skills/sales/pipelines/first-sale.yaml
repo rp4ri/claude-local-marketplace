@@ -1,0 +1,12 @@
+name: first-sale
+description: "Complete setup for a founder who has never sold their product. From zero to first outbound sequence."
+steps:
+  - command: sales-init
+    description: "Configure product, audience, pricing model, and business context"
+  - command: pricing-audit
+    description: "Validate pricing strategy before going to market"
+  - command: outbound
+    description: "Define ICP and build outbound prospecting sequence"
+  - command: cold-email
+    description: "Generate ready-to-send cold email variants"
+on_error: stop

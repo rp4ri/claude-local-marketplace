@@ -24,6 +24,8 @@ Follow the `design` skill's full orchestration workflow.
 
 **IMPLEMENT EVERYTHING YOU PROMISE.** If a previous `/design-review` suggested improvements and the user says "implement the improvements", implement ALL of them — not a subset. Track each suggestion as a checklist and verify completion.
 
+**USE PROVEN CONTENT FRAMEWORKS FOR LANDING PAGES**: When designing landing pages, hero sections, or above-the-fold content, apply the 3 P's Framework: **Proof** (specific result with numbers), **Promise** (what the user will be able to DO), **Plan** (preview of steps/features). For headlines and value propositions, use the Contrast Formula: flip a common belief (what most people think) into a surprising truth (what's actually true). Reference `marketing-studio:content-hooks` for the full framework if needed.
+
 ## Process
 
 ### 0. Resolve Framework Target
@@ -63,6 +65,36 @@ If found:
 - Note: "Using project memory: {name}. Override any setting by specifying it in your request."
 
 If not found: continue normally (no project memory, no message).
+
+### Step 0.75: Stitch Quick Proto
+
+If `$ARGUMENTS` contains `--stitch`, `quick proto`, `stitch it`, or `fast visual`:
+
+1. Extract the design intent (strip the trigger phrase/flag from the description).
+2. Find or create a Stitch project:
+   ```
+   mcp__stitch__list_projects → use first owned project, or mcp__stitch__create_project(title: "[task name]")
+   ```
+3. Generate the screen (async — do not retry on connection errors):
+   ```
+   mcp__stitch__generate_screen_from_text(
+     projectId: [id],
+     prompt: [design intent + any brand/style context from Step 0.5],
+     deviceType: MOBILE,
+     modelId: GEMINI_3_PRO
+   )
+   ```
+4. Poll until complete (check every 30s, timeout 3 min):
+   ```
+   mcp__stitch__get_screen(name, projectId, screenId) → wait for screenMetadata.status === "COMPLETE"
+   ```
+5. Download the HTML:
+   ```bash
+   curl -L "[htmlCode.downloadUrl]" -o stitch-proto.html
+   ```
+6. Use `stitch-proto.html` as the base for Step 5 (Build the Implementation) — apply brand tokens, responsive polish, and framework conversion on top. Note: "Stitch quick proto used as visual baseline."
+
+If Stitch MCP is unavailable, skip silently and proceed with Claude's native HTML generation.
 
 ### 1. Load Settings & Analyze the Task
 
@@ -145,8 +177,8 @@ into idiomatic framework components. The framework specialist will:
 
 **If `FRAMEWORK == null`:**
 HTML output is complete. After delivering, suggest:
-- "`/design-framework react-tailwind design-output.html` — convert to React components"
-- "Or set `js_framework: react` in settings.local.md for automatic conversion next time"
+- "`/design-framework svelte design-output.html` — convert to SvelteKit components"
+- "Or set `js_framework: svelte` in settings.local.md for automatic conversion next time"
 
 ### 8. Quality Review
 

@@ -1,0 +1,10 @@
+name: monthly-review
+description: "Monthly pipeline health check with outbound refresh."
+steps:
+  - command: pipeline-review
+    description: "Review all deals, identify risks, generate forecast"
+  - command: outbound
+    description: "Refresh ICP targeting and update outbound sequence"
+  - command: cold-email
+    description: "Generate fresh email variants based on updated strategy"
+on_error: stop

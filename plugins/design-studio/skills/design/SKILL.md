@@ -36,6 +36,8 @@ description: >
   immersive, AR design, AR overlay, world tracking, spatial computing,
   GDPR, CCPA, compliance design, cookie consent, consent banner, HIPAA, PCI DSS,
   data deletion, data portability, accessibility compliance, ADA compliance,
+  tauri, tauri mobile, tauri android, tauri ios, desktop app, mobile app, native app,
+  webview, safe area, keyboard inset, deep link, tauri plugin, tauri oauth, tauri build,
   studio-init, studio-status, project memory, pipeline, run pipeline,
   competitor analysis, compare designs, competitive audit, design compare,
   extract tokens, token extraction, find my design tokens, map tokens, token audit, token coverage,
@@ -271,6 +273,18 @@ description: >
 # Design Team Skill
 
 This skill provides **structured design knowledge organized by specialty**. Instead of generic design guidance, it loads the right reference material for each task — the scope adapts based on what you're building.
+
+## User Profile
+
+This user is a solo developer/founder working with:
+- **Stack**: SvelteKit + Tailwind CSS v4 + shadcn-svelte + Drizzle ORM
+- **Components**: Write `.svelte` files, never standalone HTML
+- **Styling**: Tailwind classes + `@theme` tokens, never raw CSS custom properties
+- **Svelte version**: v5 with runes (`$state`, `$derived`, `$props`, `$effect`)
+- **Does NOT use**: Figma, Stitch MCP, Firebase Hosting
+- **Preferred output**: Native framework components in the project, not `design-output.html`
+
+When routing or assembling teams, deprioritize Figma-specific commands and roles unless the user explicitly asks for Figma. When suggesting "What's Next" actions, prefer code-based commands (`/design`, `/design-review`, `/design-system`, `/ux-audit`, `/motion-design`, `/design-qa`, `/design-score`) over Figma commands.
 
 ## Plugin Commands
 

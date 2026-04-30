@@ -21,6 +21,24 @@
         "name": "rp4ri"
       },
       "source": "./plugins/marketing-studio"
+    },
+    {
+      "name": "sales-studio",
+      "description": "Sales intelligence and pipeline management — 8 roles, 12 commands, 2 agents, 3 pipelines for founder-led sales across SaaS, consulting, agency, freelance, and e-commerce.",
+      "version": "1.0.0",
+      "author": {
+        "name": "rp4ri"
+      },
+      "source": "./plugins/sales-studio"
+    },
+    {
+      "name": "dev-studio",
+      "description": "Development utilities — adversarial bug hunting with multi-agent pipeline (Recon-Hunter-Skeptic-Referee-Fixer), PR reviews, security audits, dependency scanning.",
+      "version": "1.0.0",
+      "author": {
+        "name": "rp4ri"
+      },
+      "source": "./plugins/dev-studio"
     }
   ]
 }

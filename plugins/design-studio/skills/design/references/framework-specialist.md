@@ -444,19 +444,61 @@ import Counter from '../components/Counter.tsx'
 
 ---
 
+### Tauri (v2 — Desktop + Mobile)
+
+Tauri apps use a native WebView (not Electron/Chromium). The frontend is Svelte 5 + SvelteKit, the backend is Rust. Mobile builds target Android and iOS.
+
+**Critical WebView differences from browser:**
+- `env(safe-area-inset-top)` returns `0` on Android — use native Kotlin insets
+- `visualViewport` API is broken in Tauri Android WebView (issues #7868, #10631)
+- `windowSoftInputMode="adjustResize"` has no effect with `enableEdgeToEdge()`
+- Third-party cookies are blocked — use Bearer tokens, not cookies
+- `tauri.localhost` is not a real DNS hostname — HTTP 302 redirects work (Tauri intercepts), JS navigation fails
+
+**File structure:**
+```
+src/                          # SvelteKit frontend (same as web)
+  routes/
+  lib/
+src-tauri/
+  src/lib.rs                  # Rust commands + plugin registration
+  Cargo.toml                  # Rust dependencies + Tauri plugins
+  tauri.conf.json             # App config, CSP, window settings
+  capabilities/
+    default.json              # Permission grants (deny-by-default)
+    mobile.json               # Mobile-specific permissions
+  gen/android/
+    app/src/main/java/.../MainActivity.kt  # Native Android (safe area, IME)
+    app/src/main/AndroidManifest.xml
+```
+
+**Key patterns:**
+- Frontend-to-Rust: `invoke()` from `@tauri-apps/api/core` (NOT `@tauri-apps/api/tauri` — that's v1)
+- Events: `emit()`/`listen()` from `@tauri-apps/api/event`
+- Streaming: `Channel` from `@tauri-apps/api/core`
+- Plugins: `@tauri-apps/plugin-{name}` (npm) + `tauri-plugin-{name}` (Cargo)
+- Capabilities: explicit permission grants in `src-tauri/capabilities/*.json`
+- Touch targets: minimum 44x44pt on mobile
+
+**Detailed references:** See `tauri-android.md`, `tauri-oauth.md`, `tauri-webview-gotchas.md`, `tauri-build.md`, `tauri-ipc.md`, `tauri-plugins.md`, `tauri-dev-setup.md` in this references directory.
+
+---
+
 ## Framework Detection
 
 Detect the target framework from:
-1. `--framework` flag in command: `react-tailwind`, `vue`, `svelte`, `nextjs`, `astro`
+1. `--framework` flag in command: `svelte`, `react-tailwind`, `vue`, `nextjs`, `astro`, `tauri`
 2. `settings.local.md` `js_framework` and `css_framework` fields
-3. Auto-detection context: look for `package.json` keywords (`next`, `nuxt`, `svelte`, `astro`)
+3. Auto-detection context: look for `package.json` keywords (`svelte`, `next`, `nuxt`, `astro`, `@tauri-apps`)
+4. **Default**: If no framework is detected, assume **Svelte 5 + SvelteKit + Tailwind CSS v4**
 
 Framework aliases to recognize:
+- `svelte`, `sveltekit`, `sk` → Svelte 5 + SvelteKit (default)
 - `react`, `react-tailwind`, `react-tw` → React + Tailwind
 - `vue`, `vue3`, `nuxt` → Vue 3 + UnoCSS
-- `svelte`, `sveltekit` → Svelte 5 + SvelteKit
 - `next`, `nextjs`, `next-app` → Next.js App Router + Tailwind
 - `astro` → Astro + Tailwind
+- `tauri`, `desktop`, `mobile`, `app` → Tauri (Svelte 5 frontend)
 
 ---
 
@@ -464,11 +506,12 @@ Framework aliases to recognize:
 
 | Framework | Output | File Extension | Notes |
 |-----------|--------|---------------|-------|
+| Svelte 5 (default) | SvelteKit component + Tailwind v4 @theme | `.svelte` | Use runes ($props, $state), shadcn-svelte |
 | React + Tailwind | TSX component + globals.css + tailwind.config.ts | `.tsx` | Include cn() utility |
 | Vue 3 + UnoCSS | SFC + uno.config.ts | `.vue` | Composition API + `<script setup>` |
-| Svelte 5 | Svelte component | `.svelte` | Use runes ($props, $state) |
 | Next.js App Router | Server Component + Client Component split | `.tsx` | Annotate which is server/client |
-| Astro | Astro component + optional island | `.astro` + `.tsx` | Minimal JS by default |
+| Astro | Astro component + optional island | `.astro` + `.svelte` | Minimal JS, Svelte islands |
+| Tauri | Svelte 5 component + Rust commands | `.svelte` + `.rs` | Same as Svelte + @tauri-apps/api |
 
 ---
 

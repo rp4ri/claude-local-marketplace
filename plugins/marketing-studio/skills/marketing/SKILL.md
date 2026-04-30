@@ -113,10 +113,16 @@ User request
   |
   +-- "AI" / "citation" / "ChatGPT" / "Perplexity" --> /ai-citations
   |     +-- Quick check only? --> citation-checker agent
+  |     +-- "agent task completion" / "WebMCP" / "agentic" --> load Agentic Search Optimizer reference
+  |
   |
   +-- "grow" / "acquisition" / "funnel" / "experiment" --> /growth-plan
   |
   +-- "content" / "blog" / "editorial" / "newsletter" --> /content-plan
+  |
+  +-- "hooks" / "angles" / "headlines" / "subject lines" / "ad copy" --> /content-plan + load content-hooks reference
+  |
+  +-- "short post" / "tweet" / "carousel" / "social post" / "content calendar" --> /social-strategy + load shortform-content reference
   |
   +-- "social" / "twitter" / "linkedin" / "tiktok" --> /social-strategy
   |
@@ -161,6 +167,9 @@ User request
 | Twitter Engager | `${CLAUDE_PLUGIN_ROOT}/skills/marketing/references/twitter-engager.md` | Twitter/X threads, thought leadership, real-time engagement |
 | Reddit Community Builder | `${CLAUDE_PLUGIN_ROOT}/skills/marketing/references/reddit-community-builder.md` | Reddit presence, community trust, value-first engagement |
 | Platform Specialist | `${CLAUDE_PLUGIN_ROOT}/skills/marketing/references/platform-specialists.md` | TikTok, Instagram platform-specific tactics |
+| Agentic Search Optimizer | `${CLAUDE_PLUGIN_ROOT}/skills/marketing/references/agentic-search-optimizer.md` | WebMCP readiness, AI agent task completion, agentic search (wave 3) |
+| Content Hooks & Angles Specialist | `${CLAUDE_PLUGIN_ROOT}/skills/marketing/references/content-hooks.md` | When generating content angles, hooks, headlines, email subjects, ad copy, or evaluating content ideas |
+| Shortform Content Specialist | `${CLAUDE_PLUGIN_ROOT}/skills/marketing/references/shortform-content.md` | When creating social media posts, tweets, LinkedIn content, carousels, or planning content calendars |
 
 ## Agent Registry
 

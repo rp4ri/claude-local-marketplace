@@ -1,0 +1,22 @@
+{
+  "name": "sales-studio",
+  "version": "1.0.0",
+  "description": "Sales intelligence and pipeline management for solo founders. Prospect analysis, cold outreach, deal qualification, proposals, pricing strategy, objection handling, and pipeline tracking across SaaS, consulting, agency, freelance, and e-commerce models. 8 roles, 12 commands, 2 agents, 3 pipelines.",
+  "author": {
+    "name": "rp4ri"
+  },
+  "keywords": [
+    "sales",
+    "pipeline",
+    "outbound",
+    "cold-email",
+    "proposals",
+    "pricing",
+    "objections",
+    "prospecting",
+    "BANT",
+    "MEDDIC",
+    "founder-led-sales",
+    "B2B"
+  ]
+}

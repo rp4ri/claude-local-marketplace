@@ -65,8 +65,12 @@ elif grep -q '"@vanilla-extract"' "$PROJECT_DIR/package.json" 2>/dev/null; then
   CONTEXT="${CONTEXT}- Styling: vanilla-extract (CSS-in-JS)\n"
 fi
 
-# --- JS Framework ---
-if grep -q '"next"' "$PROJECT_DIR/package.json" 2>/dev/null; then
+# --- JS Framework (Svelte/SvelteKit first — primary stack) ---
+if grep -q '"@sveltejs/kit"' "$PROJECT_DIR/package.json" 2>/dev/null; then
+  CONTEXT="${CONTEXT}- Framework: SvelteKit\n"
+elif grep -q '"svelte"' "$PROJECT_DIR/package.json" 2>/dev/null; then
+  CONTEXT="${CONTEXT}- Framework: Svelte\n"
+elif grep -q '"next"' "$PROJECT_DIR/package.json" 2>/dev/null; then
   CONTEXT="${CONTEXT}- Framework: Next.js\n"
 elif grep -q '"nuxt"' "$PROJECT_DIR/package.json" 2>/dev/null; then
   CONTEXT="${CONTEXT}- Framework: Nuxt\n"
@@ -80,10 +84,29 @@ elif grep -q '"react"' "$PROJECT_DIR/package.json" 2>/dev/null; then
   CONTEXT="${CONTEXT}- Framework: React\n"
 elif grep -q '"vue"' "$PROJECT_DIR/package.json" 2>/dev/null; then
   CONTEXT="${CONTEXT}- Framework: Vue\n"
-elif grep -q '"svelte"' "$PROJECT_DIR/package.json" 2>/dev/null; then
-  CONTEXT="${CONTEXT}- Framework: Svelte\n"
 elif grep -q '"solid-js"' "$PROJECT_DIR/package.json" 2>/dev/null; then
   CONTEXT="${CONTEXT}- Framework: SolidJS\n"
+fi
+
+# --- Tauri (must check before TypeScript — adds mobile-specific context) ---
+if [ -d "$PROJECT_DIR/src-tauri" ]; then
+  CONTEXT="${CONTEXT}- Platform: Tauri v2 (desktop/mobile)\n"
+  if [ -d "$PROJECT_DIR/src-tauri/gen/android" ]; then
+    CONTEXT="${CONTEXT}- Mobile: Android target configured\n"
+    if [ -f "$PROJECT_DIR/src-tauri/gen/android/app/src/main/java/com/"*"/MainActivity.kt" ] 2>/dev/null; then
+      CONTEXT="${CONTEXT}- Native: MainActivity.kt present (check IME/safe-area insets)\n"
+    fi
+  fi
+  if [ -d "$PROJECT_DIR/src-tauri/gen/apple" ]; then
+    CONTEXT="${CONTEXT}- Mobile: iOS target configured\n"
+  fi
+  if grep -q '"@tauri-apps/plugin-deep-link"' "$PROJECT_DIR/package.json" 2>/dev/null; then
+    CONTEXT="${CONTEXT}- Tauri plugin: deep-link\n"
+  fi
+  if grep -q '"@tauri-apps/plugin-store"' "$PROJECT_DIR/package.json" 2>/dev/null; then
+    CONTEXT="${CONTEXT}- Tauri plugin: store\n"
+  fi
+  CONTEXT="${CONTEXT}- IMPORTANT: Read tauri-android.md, tauri-webview-gotchas.md, tauri-oauth.md references before making mobile UI changes\n"
 fi
 
 # --- TypeScript ---

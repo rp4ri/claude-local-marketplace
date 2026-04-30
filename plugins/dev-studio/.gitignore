@@ -1,0 +1,4 @@
+.bug-hunter/
+.dev-studio/
+.env
+scripts/.env

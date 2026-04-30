@@ -1,0 +1,55 @@
+{
+  "description": "Dev Studio hooks — code guardian (read-before-edit, depth limits, destructive blocking, CLAUDE.md audit) + dev context detection",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/detect-dev-context.sh",
+            "timeout": 10
+          },
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/guardian-session-start.sh",
+            "timeout": 10,
+            "statusMessage": "Guardian: auditing CLAUDE.md..."
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/guardian-pre-edit.sh",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/guardian-pre-write.sh",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/guardian-pre-bash.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

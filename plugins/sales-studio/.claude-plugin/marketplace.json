@@ -1,0 +1,19 @@
+{
+  "name": "sales-studio",
+  "owner": {
+    "name": "rp4ri",
+    "url": "https://github.com/rp4ri"
+  },
+  "plugins": [
+    {
+      "name": "sales-studio",
+      "source": "./",
+      "description": "Sales intelligence and pipeline management for solo founders. 8 specialist roles, 12 commands, 2 automated agents, 3 pipelines. Supports SaaS, consulting, agency, freelance, and e-commerce B2B models.",
+      "version": "1.0.0",
+      "author": { "name": "rp4ri" },
+      "repository": "https://github.com/rp4ri/claude-local-marketplace",
+      "license": "MIT",
+      "keywords": ["sales", "pipeline", "outbound", "prospecting", "pricing", "B2B"]
+    }
+  ]
+}

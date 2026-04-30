@@ -1,6 +1,6 @@
 ---
 name: chart-design
-description: Design a chart or data visualization — selects the right chart type, applies accessible color palettes, adds annotations, and outputs production-ready HTML/CSS/JS
+description: Design a chart or data visualization — selects the right chart type, applies accessible color palettes, adds annotations. Uses Lightweight Charts for financial data, D3/LayerChart for general charts
 allowed-tools: ["Read", "Write", "Edit", "Bash", "Glob", "Grep", "mcp__*"]
 triggers:
   - chart
@@ -21,7 +21,7 @@ arguments: "$ARGUMENTS"
 
 # /chart-design
 
-Design a data visualization: select the right chart type, apply accessible colors, add meaningful annotations, and produce production-ready HTML/CSS/JS with Chart.js (or vanilla SVG for simple charts).
+Design a data visualization: select the right chart type, apply accessible colors, add meaningful annotations, and produce production-ready HTML/CSS/JS with Lightweight Charts (for financial/time-series) or D3.js (for general charts). Falls back to vanilla SVG for simple charts.
 
 **Usage:** `/chart-design <description>`
 
@@ -40,7 +40,7 @@ Design a data visualization: select the right chart type, apply accessible color
 Extract from `$ARGUMENTS`:
 - **Data relationship**: What story is being told? (trend, comparison, distribution, correlation, part-to-whole, ranking, geographic, flow)
 - **Data shape**: How many series? Continuous vs discrete? Time-based?
-- **Library**: `--library chart.js` (default) | `d3` | `recharts` | `vanilla`
+- **Library**: `--library lightweight-charts` (default for financial/time-series) | `d3` (default for general charts) | `layerchart` (D3-based Svelte wrapper) | `vanilla`
 - **Accessibility**: Any colorblind-safe requirements? (`--a11y` flag or always default to accessible palette)
 - **Style**: `--style dark` for dark backgrounds, `--style minimal` for clean axes
 
@@ -99,15 +99,15 @@ Identify the key insight and add at least one annotation:
 ### 5. Build the Chart
 
 **HTML/CSS/JS output requirements:**
-- Use Chart.js (CDN-free, include inline or self-contained) unless `--library` specified
-- `responsive: true`, `maintainAspectRatio: false` — chart fills its container
-- `width: 100%; height: 300px` on `<canvas>` wrapper (override with `--height` flag)
+- **Financial/time-series data**: Use `lightweight-charts` (TradingView) — candlestick, OHLC, area, line with from/to pagination
+- **General charts**: Use D3.js or LayerChart (D3-based Svelte wrapper) for bar, scatter, pie, treemap, sankey
+- **Simple charts**: Use vanilla SVG for basic visualizations
+- `width: 100%; height: 300px` on chart wrapper (override with `--height` flag)
 - Accessible: SVG charts get `role="img"` + `<title>` + `<desc>` elements
 - Canvas charts: `aria-labelledby` pointing to `<figcaption>` + `<details>` data table fallback
 - Legend: bottom on mobile (< 600px), right on desktop
-- Tick density: 4 ticks on mobile, 8 on desktop
 - Tooltip: custom HTML tooltip with value, label, and % where relevant
-- Annotations rendered as additional datasets or via `chartjs-plugin-annotation`
+- If in a SvelteKit project, prefer LayerChart components over raw D3 DOM manipulation
 
 **Output structure:**
 ```html
@@ -150,7 +150,7 @@ Before outputting:
 
 ## MCP Fallback
 
-This command does not require MCP. All output is self-contained HTML/CSS/JS using Chart.js or vanilla SVG.
+This command does not require MCP. All output is self-contained HTML/CSS/JS using Lightweight Charts, D3.js/LayerChart, or vanilla SVG.
 
 ---
 
@@ -158,4 +158,4 @@ This command does not require MCP. All output is self-contained HTML/CSS/JS usin
 
 - `/dashboard-layout` — Place the chart in a full dashboard with KPI cards and filters
 - `/design-review` — Audit the chart output for accessibility and visual quality
-- `/design-framework` — Convert the HTML chart to a React/Vue/Svelte component
+- `/design-framework` — Convert the HTML chart to a Svelte/React/Vue component

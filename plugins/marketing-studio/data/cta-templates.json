@@ -1,0 +1,171 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "description": "CTA templates organized by platform × type for solo founders. Use {{variable}} placeholders.",
+    "adapted_from": "goviralbro/data/cta-templates.json",
+    "notes": "Video-specific CTAs removed. Added solo founder CTAs (free trial, demo, waitlist, case study)."
+  },
+  "templates": {
+    "email": {
+      "community": [
+        "Join {{community_name}} — where {{audience}} share what's actually working",
+        "Want to go deeper? {{community_name}} is where we discuss this stuff daily"
+      ],
+      "lead_magnet": [
+        "Download the free {{lead_magnet_title}} — no signup wall, just click below",
+        "Get the {{lead_magnet_title}} I used to {{result}} — free download"
+      ],
+      "website": [
+        "See how it works at {{website_url}}"
+      ],
+      "newsletter": [
+        "Know someone who'd find this useful? Forward this email — they can subscribe here"
+      ],
+      "booking": [
+        "Book a 15-minute intro call — no pitch, just figuring out if I can help",
+        "Reply 'CALL' and I'll send you my calendar link"
+      ],
+      "product": [
+        "Try {{product_name}} free for 14 days — no credit card required",
+        "See {{product_name}} in action — I recorded a 3-minute walkthrough"
+      ],
+      "dm": [
+        "Reply to this email with your biggest question about {{topic}} — I read every one"
+      ]
+    },
+    "blog_post": {
+      "community": [
+        "Want to discuss this with other {{audience}}? Join {{community_name}}"
+      ],
+      "lead_magnet": [
+        "I turned this post into a {{lead_magnet_title}} with templates you can copy — get it here",
+        "Download the {{lead_magnet_title}} to implement this step-by-step"
+      ],
+      "website": [
+        "See real examples of this in action at {{website_url}}"
+      ],
+      "newsletter": [
+        "I write about {{topic}} every week — subscribe to get the next one",
+        "Enjoyed this? I send one actionable {{topic}} insight every {{frequency}} — subscribe free"
+      ],
+      "booking": [
+        "Want help implementing this for your business? Book a free strategy call"
+      ],
+      "product": [
+        "{{product_name}} automates this entire workflow — try it free",
+        "Read the case study: how {{customer_name}} used {{product_name}} to {{result}}"
+      ],
+      "dm": [
+        "Have a question about implementing this? Reach me at {{email}} — I reply to everything"
+      ]
+    },
+    "landing_page": {
+      "community": [
+        "Join {{community_name}} — {{member_count}}+ {{audience}} already inside"
+      ],
+      "lead_magnet": [
+        "Get the free {{lead_magnet_title}}",
+        "Download the {{lead_magnet_title}} — used by {{download_count}}+ {{audience}}"
+      ],
+      "newsletter": [
+        "Join {{subscriber_count}}+ {{audience}} getting weekly insights on {{topic}}"
+      ],
+      "booking": [
+        "Book a free demo",
+        "Book a demo — see how {{product_name}} works in {{time_estimate}}"
+      ],
+      "product": [
+        "Start free — no credit card required",
+        "Try {{product_name}} free for {{trial_days}} days",
+        "Get started in {{time_estimate}} — free plan available",
+        "Join the waitlist — be first when we launch",
+        "Join {{waitlist_count}}+ on the waitlist",
+        "Request early access — limited spots for {{launch_window}}",
+        "Read the case study: {{customer_name}} achieved {{result}} in {{timeframe}}",
+        "See how {{customer_name}} {{result}} with {{product_name}}"
+      ],
+      "website": [
+        "See it in action →",
+        "View the live demo →"
+      ],
+      "dm": [
+        "Questions? Chat with us live"
+      ]
+    },
+    "social_post": {
+      "community": [
+        "Full breakdown inside {{community_name}} — link in bio",
+        "Comment '{{keyword}}' and I'll DM you the community link"
+      ],
+      "lead_magnet": [
+        "Comment '{{keyword}}' and I'll DM you the free {{lead_magnet_title}}",
+        "Free {{lead_magnet_title}} — link in bio"
+      ],
+      "website": [
+        "Full breakdown at {{website_url}} — link in bio"
+      ],
+      "newsletter": [
+        "I write about this every week — subscribe link in bio"
+      ],
+      "booking": [
+        "DM me 'READY' to book a free strategy call",
+        "Free consultation — link in bio"
+      ],
+      "product": [
+        "Try {{product_name}} — link in bio",
+        "Comment '{{keyword}}' and I'll DM you access"
+      ],
+      "dm": [
+        "DM me '{{keyword}}' and I'll send you everything"
+      ]
+    },
+    "linkedin": {
+      "community": [
+        "I go deeper on this inside {{community_name}} — check the link in my featured section"
+      ],
+      "lead_magnet": [
+        "I put together a free {{lead_magnet_title}} covering this — DM me '{{keyword}}' and I'll send it over"
+      ],
+      "website": [
+        "We document our full process at {{website_url}}"
+      ],
+      "newsletter": [
+        "I write one actionable insight on {{topic}} every week — subscribe link in featured"
+      ],
+      "booking": [
+        "If you want help implementing this, DM me or book a call — link in featured"
+      ],
+      "product": [
+        "We built {{product_name}} to solve exactly this — link in featured",
+        "Read the case study: how {{customer_name}} {{result}} using {{product_name}}"
+      ],
+      "dm": [
+        "DM me if you want to talk about implementing this for your business"
+      ]
+    }
+  },
+  "variables": {
+    "community_name": "Name of your community (e.g., 'The Builder Circle')",
+    "audience": "Your target audience (e.g., 'solo founders', 'indie hackers')",
+    "lead_magnet_title": "Title of free resource (e.g., 'Landing Page Checklist')",
+    "website_url": "Your website URL",
+    "newsletter_url": "Newsletter signup URL",
+    "product_name": "Your product name",
+    "keyword": "DM trigger keyword (e.g., 'GUIDE', 'ACCESS')",
+    "topic": "Content topic (e.g., 'product-led growth')",
+    "result": "Specific outcome (e.g., 'cut churn by 40%')",
+    "customer_name": "Case study customer name",
+    "trial_days": "Free trial length (e.g., '14')",
+    "time_estimate": "Time to get started (e.g., '5 minutes')",
+    "frequency": "Newsletter frequency (e.g., 'Tuesday', 'week')",
+    "subscriber_count": "Newsletter subscriber count",
+    "member_count": "Community member count",
+    "download_count": "Lead magnet download count",
+    "waitlist_count": "Waitlist signup count",
+    "launch_window": "Launch timing (e.g., 'Q2 beta')",
+    "timeframe": "Case study timeframe (e.g., '3 months')",
+    "founder_name": "Your name for personal CTAs",
+    "email": "Your email for direct contact CTAs",
+    "industry": "Reader's industry (e.g., 'SaaS', 'ecommerce')"
+  }
+}

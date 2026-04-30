@@ -1,0 +1,12 @@
+name: deal-cycle
+description: "Full cycle for a single deal — from prospect research through proposal delivery."
+steps:
+  - command: prospect
+    description: "Research and score the prospect company"
+  - command: discovery-prep
+    description: "Prepare cheat sheet and SPIN questions for the call"
+  - command: deal-review
+    description: "Qualify the deal with BANT scoring after discovery"
+  - command: proposal
+    description: "Generate tailored proposal with pricing and ROI"
+on_error: stop

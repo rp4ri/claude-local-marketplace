@@ -13,6 +13,9 @@ For platform-specific depth, also read the relevant reference:
 - Reddit: `${CLAUDE_PLUGIN_ROOT}/skills/marketing/references/reddit-community-builder.md`
 - TikTok/Instagram: `${CLAUDE_PLUGIN_ROOT}/skills/marketing/references/platform-specialists.md`
 
+When planning social content, writing posts, or building content calendars, also read:
+- `${CLAUDE_PLUGIN_ROOT}/skills/marketing/references/shortform-content.md`
+
 Input: **$ARGUMENTS**
 
 ## Critical Rules

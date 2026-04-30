@@ -204,3 +204,4 @@ If `.marketing-studio/` directory exists, append to `.marketing-studio/memory.md
 - `/content-plan` — Build content specifically targeting citation gaps
 - `citation-checker` agent — Quick automated spot-check between full audits
 - `/marketing-status` — Check when last citation audit was run
+- **Agentic Search Optimizer** reference (`${CLAUDE_PLUGIN_ROOT}/skills/marketing/references/agentic-search-optimizer.md`) — Wave 3: ensuring AI browsing agents can complete tasks on your site, not just cite it. Load this reference when the user asks about WebMCP, agent task completion, or agentic search readiness.
