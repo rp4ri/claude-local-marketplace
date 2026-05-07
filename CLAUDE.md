@@ -104,16 +104,33 @@ The following command files have been improved beyond upstream based on real usa
 
 ### Commands
 
-- `/bug-hunt` — Main adversarial pipeline (Recon→Hunter→Skeptic→Referee→Fixer)
-- `/bug-hunt src/` — Scan specific directory
+- `/bug-hunt` — Adversarial pipeline (Recon→Hunter→Skeptic→Referee→Fixer)
 - `/bug-hunt --pr current` — Review current PR
 - `/bug-hunt --fix` — Find + auto-fix confirmed bugs
-- `/bug-hunt --deps` — Include dependency CVE scan
 - `/bug-hunt --security-review` — Full security workflow
-- `/bug-hunt --staged` — Pre-commit check on staged files
+- `/dev audit` — Systematic 20-check audit (N+1, dead code, perf, security). Output: `.dev-studio/audit-report.md`
+- `/dev audit --quick` — Skip Layer 2 verification (faster)
+- `/dev audit --fix` — Auto-fix LOW/MEDIUM findings
+- `/dev review` — 4-phase structured code review (context→architecture→line-by-line→verdict)
+- `/dev review --pr current` — Review current PR with severity labels
+- `/dev perf` — Performance analysis (load waterfalls, blocking I/O, bundle size)
+- `/dev perf --routes` — SvelteKit load function waterfall analysis
+- `/dev perf --bundle` — Bundle size + tree-shaking issues
+- `/dev migrate <from> to <to>` — Technology migration workflow (inventory→plan→execute→validate)
+- `/dev migrate --plan-only` — Produce plan without executing
 - `/dev-init` — Initialize dev-studio config + first triage
 - `/dev-status` — Show last report, coverage, triage data
-- `/dev-help` — List all commands
+- `/dev-help` — List all commands with "when to use what" guide
+
+### When to use what
+
+| I want to... | Use |
+|---|---|
+| Find unknown bugs adversarially | `/bug-hunt` |
+| Check code quality systematically | `/dev audit` |
+| Review before merging | `/dev review` |
+| Find why something is slow | `/dev perf` |
+| Switch from tech A to tech B | `/dev migrate` |
 
 ### Adaptations from upstream
 
@@ -123,12 +140,33 @@ The following command files have been improved beyond upstream based on real usa
 - Renamed `/bug-hunter` → `/bug-hunt` in all usage examples
 - All 14 scripts are zero-dependency CommonJS (Node.js stdlib only)
 
+### New skills (v2.0 — added 2026-05-05)
+
+Based on analysis of levnikolaevich/claude-code-skills (audit workers), awesome-skills/code-review-skill (4-phase review), and original work (migrate, perf):
+
+- `skills/audit/SKILL.md` (628 lines) — 4 workers: query-efficiency (6 checks, Drizzle-adapted), dead-code (4), runtime-perf (5), security-smells (5). Layer 2 verification. Codegraph MCP integration.
+- `skills/review/SKILL.md` (201 lines) — 4-phase review with severity labels ([blocking]/[important]/[nit]/[suggestion]/[praise]). Svelte 5 anti-pattern checks built in.
+- `skills/migrate/SKILL.md` (561 lines) — 5-phase migration: inventory→compatibility→plan→execute→validate. 6 common migrations pre-loaded (Svelte 4→5, Tailwind v3→v4, Prisma→Drizzle, etc.)
+- `skills/perf/SKILL.md` (297 lines) — Load waterfalls, blocking sync, client reactivity issues, bundle analysis. SvelteKit streaming pattern suggestions.
+
+### Codegraph MCP integration
+
+Codegraph (~/others/codegraph/) is configured as a global user MCP server. It provides:
+- `codegraph_impact` — blast radius analysis (what breaks if I change X)
+- `codegraph_callers` / `codegraph_callees` — call chain tracing
+- `codegraph_search` — FTS5 symbol search
+- `codegraph_context` / `codegraph_explore` — contextual code retrieval
+
+The audit and perf skills use codegraph when available for hot-path detection and blast radius, falling back to grep silently when not indexed.
+
+To index a new project: `cd <project> && codegraph analyze`
+
 ### Structure
 
-- 4 commands, 10 reference skills, 9 execution modes, 2 example files
+- 8 commands, 5 skills, 10 reference docs, 9 execution modes, 2 examples
 - 14 scripts (~6,400 lines), 10 JSON schemas
 - 1 agent (bug-triage), 1 SessionStart hook (detect-dev-context.sh)
-- ~55 files total
+- ~65 files total, ~5,000 lines of skill content
 
 ## Plugin: sales-studio
 
