@@ -40,8 +40,13 @@ allowed-tools: []
 - `/dev migrate prisma to drizzle --plan-only` — Plan without executing
 - `/dev migrate react to svelte 5 --execute` — Execute with rollback per phase
 
+## Structural Health (sentrux)
+- `/dev gate --save` — Save architectural baseline (start of feature/session)
+- `/dev gate` — Check for structural regressions against baseline
+- `/dev gate --diff` — Show what changed structurally
+
 ## Project Management
-- `/dev-init` — Initialize dev-studio config + first triage
+- `/dev-init` — Initialize config + index codegraph + save sentrux baseline
 - `/dev-status` — Show last report, coverage, triage data
 - `/dev-help` — This help
 
@@ -54,3 +59,4 @@ allowed-tools: []
 | Review before merging | `/dev review` |
 | Find why something is slow | `/dev perf` |
 | Switch from tech A to tech B | `/dev migrate` |
+| Check if I broke the architecture | `/dev gate` |

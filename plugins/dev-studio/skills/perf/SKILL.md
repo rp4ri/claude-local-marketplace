@@ -280,14 +280,22 @@ immediately without opening the file.
 | P1 | Measurable latency or bundle regression | Sequential awaits, missing cleanup, heavy static imports |
 | P2 | Minor / cumulative | Missing `depends()`, `$state.raw`, duplicate packages |
 
-## Integration with codegraph (optional)
+## Codegraph + Sentrux Integration
 
-If the `codegraph_callers` tool is available in this session, use it to determine
+**Codegraph** — if `codegraph_callers` is available as MCP tool, use it to determine
 whether a flagged slow function is in a hot path:
 - Hot path: called from a route load function → P0 or P1 (user-facing)
 - Cold path: called only from scripts, migrations, or cron jobs → downgrade one level
+- Query codegraph for P0 candidates only to keep analysis time bounded
+- If not available, emit: "⚠ Codegraph not indexed. Run `codegraph analyze` for hot-path detection."
 
-Only query codegraph for P0 candidates to keep analysis time bounded.
+**Sentrux** — if `sentrux` is in PATH, run at the end of the analysis:
+```bash
+sentrux check . --format json 2>/dev/null
+```
+Extract `equality` metric. If < 0.3, add a P1 finding: "God files detected — large files
+concentrate complexity and are harder to optimize. Consider decomposing." List the files
+with highest fan-in from sentrux output.
 
 ## Error Handling
 

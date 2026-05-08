@@ -21,6 +21,7 @@ query efficiency, dead code, runtime performance, and security smells.
 - [Worker 4: Security Smells](#worker-4-security-smells)
 - [Layer 2 Verification](#layer-2-verification)
 - [Output Format](#output-format)
+- [Worker 0: Sentrux Structural Health](#worker-0-sentrux-structural-health)
 - [Codegraph Integration](#codegraph-integration)
 - [Error Handling](#error-handling)
 
@@ -54,6 +55,9 @@ query efficiency, dead code, runtime performance, and security smells.
 
 ```
 Resolve target
+     |
+     v
+Worker 0: Sentrux Health    -->  quality_signal, coupling, cycles
      |
      v
 Worker 1: Query Efficiency  -->  findings[]
@@ -96,6 +100,46 @@ Filter to `.ts`, `.svelte`, `.js` files only.
 **If path argument:** Use as-is.
 
 **Default:** `src/`
+
+---
+
+## Worker 0: Sentrux Structural Health
+
+**Prerequisite:** `sentrux` must be in PATH. If not found, skip this worker and note in report.
+
+Run sentrux to get the architectural health baseline before code-level analysis:
+
+```bash
+sentrux check . --format json 2>/dev/null
+```
+
+If the command succeeds, parse the JSON output and extract:
+
+| Metric | What it means | Action threshold |
+|--------|--------------|-----------------|
+| `quality_signal` | 0–10000 composite score | < 5000 = flag as CRITICAL structural issue |
+| `modularity` | How well code is decomposed | < 0.4 = monolithic, recommend splitting |
+| `acyclicity` | Absence of dependency cycles | < 0.8 = cycles present, list them |
+| `depth` | Module hierarchy depth | > 8 = too deep, flatten |
+| `equality` | Even distribution of size | < 0.3 = god files present |
+
+If sentrux finds **rule violations** (from `.sentrux/rules.toml`), include them as findings:
+- Layer violations → Severity: HIGH
+- Dependency cycles → Severity: HIGH
+- God files (> threshold) → Severity: MEDIUM
+
+**Also run gate comparison if baseline exists:**
+
+```bash
+sentrux gate . 2>/dev/null
+```
+
+If a `.sentrux/baseline.json` exists, this reports **regressions** since the last gate save.
+Include any regression (quality_signal decrease > 100 points) as a MEDIUM finding.
+
+If sentrux is not installed or fails, silently skip and proceed to Worker 1.
+
+**Output:** Add a "Structural Health" section at the top of the audit report with the metrics table and any violations.
 
 ---
 
@@ -516,17 +560,27 @@ point, downgrade severity by one level (CRITICAL→HIGH, HIGH→MEDIUM).
 
 ---
 
-## Codegraph Integration (Optional)
+## Codegraph Integration
 
-If the `codegraph` MCP server is available (check via tool list at session
-start), enhance verification with:
+At the start of the audit, check if `codegraph_search` is available as an MCP tool.
 
-- **`codegraph_callers(symbol)`** — verify call chains for N+1 and dead code
-- **`codegraph_impact(symbol)`** — assess blast radius before auto-fixing
-- **`codegraph_references(symbol)`** — replace grep-based dead-export checks
+**If codegraph is available, PREFER it over grep for these checks:**
 
-If codegraph tools are NOT available, all verification falls back to the
-grep-based patterns described above. Do not error — gracefully degrade.
+| Check | Without codegraph | With codegraph |
+|-------|------------------|----------------|
+| W1-1 N+1 verification | Grep for loop context | `codegraph_callers(fn)` — trace full call chain to confirm loop |
+| W2-1 Unused exports | `grep -rn "import.*Name"` | `codegraph_references(symbol)` — precise, no false negatives |
+| W3-1 Blocking in async | Grep for `readFileSync` | `codegraph_callers(fn)` — confirm it's in a hot path from a route |
+| V3 Reachability | Manual trace | `codegraph_callers(fn, depth=5)` — automated route reachability |
+| Auto-fix blast radius | Skip | `codegraph_impact(symbol)` — list all affected files before editing |
+
+**If codegraph is NOT indexed for this project**, emit a warning at the top of the report:
+```
+⚠ Codegraph not indexed. Run `codegraph analyze` in this project for deeper analysis.
+   Falling back to grep-based verification (higher false positive rate).
+```
+
+Then fall back to the grep-based patterns described in each worker. Do not error.
 
 ---
 

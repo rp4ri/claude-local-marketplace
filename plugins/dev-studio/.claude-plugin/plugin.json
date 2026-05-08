@@ -1,6 +1,6 @@
 {
   "name": "dev-studio",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Developer toolkit — bug hunting, code audit (N+1, dead code, security), structured code review, performance analysis, and technology migration workflows.",
   "author": {
     "name": "rp4ri"
