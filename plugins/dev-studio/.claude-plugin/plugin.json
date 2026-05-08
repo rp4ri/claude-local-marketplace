@@ -1,7 +1,7 @@
 {
   "name": "dev-studio",
-  "version": "1.0.0",
-  "description": "Development utilities — adversarial bug hunting with multi-agent pipeline (Recon→Hunter→Skeptic→Referee→Fixer), PR reviews, security audits, dependency scanning.",
+  "version": "2.0.0",
+  "description": "Developer toolkit — bug hunting, code audit (N+1, dead code, security), structured code review, performance analysis, and technology migration workflows.",
   "author": {
     "name": "rp4ri"
   },
@@ -12,9 +12,10 @@
     "vulnerability",
     "code-review",
     "pr-review",
-    "OWASP",
-    "CVE",
-    "STRIDE",
+    "performance",
+    "migration",
+    "n+1",
+    "dead-code",
     "adversarial",
     "auto-fix",
     "triage",
