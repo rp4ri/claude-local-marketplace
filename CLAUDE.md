@@ -206,3 +206,42 @@ To index a new project: `cd <project> && codegraph analyze`
 - Commands: sales-init, sales, sales-status, prospect, outbound, cold-email, deal-review, discovery-prep, proposal, pricing-audit, pipeline-review, objection-bank
 - Agents: deal-scorer (quick BANT), email-grader (cold email quality)
 - Pipelines: first-sale, deal-cycle, monthly-review
+
+## pi packages (cross-tool port)
+
+The four studios are also packaged for [**pi**](https://github.com/earendil-works/pi) (earendil-works coding agent) in a **separate sibling repo**: `~/others/pi-studios/` (own git repo, distributed via `pi install git:github.com/rp4ri/pi-studios`). The Claude Code plugins in `plugins/` remain the source of truth; the pi repo is **generated**, not hand-maintained.
+
+Kept separate (not a subdir here) because pi expects a package's `package.json` at the repo root, and bundling it inside the Claude marketplace would double the repo with duplicated content. `marketplace.json` only references `./plugins/*`, so the pi port never affects Claude plugin installs.
+
+### Regenerate
+
+```bash
+node scripts/convert-to-pi.cjs   # idempotent; writes to ../pi-studios/
+```
+
+The script does NOT touch the hand-written `../pi-studios/<studio>/extensions/index.ts` or `../pi-studios/README.md`.
+
+### Conversion mapping
+
+| Claude Code | pi | Transform |
+|---|---|---|
+| `commands/*.md` | `prompts/*.md` (`/name`) | Drop `allowed-tools` from frontmatter. `description`/`argument-hint` and `$ARGUMENTS`/`$1`/`$@` are identical in pi — body unchanged. |
+| `skills/<n>/SKILL.md` | `skills/<n>/SKILL.md` (`/skill:n`) | Verbatim — pi uses the same Agent Skills standard. |
+| `agents/*.md` | `skills/<n>/SKILL.md` | Frontmatter normalized to `name` + short `description` (<900 chars, examples stripped); body preserved. |
+| `hooks/hooks.json` | `extensions/index.ts` | Hand-written TS using pi events `session_start`, `before_agent_start`, `tool_call`. Only design-studio + dev-studio have hooks. |
+| `scripts/`, `schemas/`, `data/` | copied verbatim | — |
+| `.claude-plugin/plugin.json` (×4) | single root `package.json` (`pi` manifest) | One aggregating manifest at `../pi-studios/package.json` with explicit per-studio paths, so one `pi install git:` loads all four. |
+
+### Non-portable pieces (handled in extensions)
+
+- **dev-studio read-before-edit guardian**: the original `guardian-pre-edit.sh`/`guardian-pre-write.sh` depend on Claude's `transcript_path`. Reimplemented natively in the pi extension by tracking the `read` tool in a Set. `guardian-pre-bash.sh` is still invoked (only needs `tool_input.command`).
+- **MCP** (figma, playwright, stitch, perplexity, codegraph): not auto-wired in pi — documented in `../pi-studios/README.md` for `pi-mcp-adapter` setup.
+
+### Generated structure (one repo, one package)
+
+| Studio dir | Prompts | Skills | Extension |
+|---|---|---|---|
+| `design-studio` | 60 | 8 | SessionStart context |
+| `dev-studio` | 9 | 6 | SessionStart + bash guardian + read-before-edit |
+| `marketing-studio` | 11 | 3 | — |
+| `sales-studio` | 12 | 3 | — |
